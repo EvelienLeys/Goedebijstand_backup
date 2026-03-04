@@ -213,17 +213,7 @@ const EXT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/fi
 const INT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Interieur_Onze-Lieve-Vrouw%20van%20Goede%20Bijstandkerk_JPR4243_%C2%A9%20visit.brussels%20-%20Jean-Paul%20Remy.jpg';
 const ALT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Extra%20%28kunstwerk%20detail%29_Altaar%20Goede%20Bijstandskerk_0.jpg';
 
-// ══════════════════════════════════════════════════════════
-// AGENDA — EXTRA EVENEMENTEN
-// Zondag 11u (Goede Bijstand) en zaterdag 16u30 (Finis Terrae)
-// worden automatisch ingevuld. Voeg hier éénmalige extra
-// evenementen toe per datum: "JJJJ-MM-DD": [{tijd,type,tekst}]
-// type: "viering" | "activiteit" | "muziek"
-// ══════════════════════════════════════════════════════════
-const agendaExtra = {
-  // "2026-03-22": [{ tijd: "14:00", type: "muziek",     tekst: "Orgelconcert \u2014 vrije toegang" }],
-  // "2026-03-25": [{ tijd: "15:00", type: "activiteit", tekst: "Lezing: geloofsgesprek" }]
-};
+const agendaExtra = {};
 
 const DNKORT  = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
 const MNKORT  = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
@@ -479,7 +469,6 @@ const pages = {
         <a onclick="showVierSub('fotos')"     data-vsub="fotos">&#128247; Foto&#8217;s</a>
       </div>
 
-      <!-- ── OVERZICHT ── -->
       <div id="vsub-overzicht" class="vsub">
         <img src="${INT}" alt="Interieur kerk" class="church-photo" style="height:200px;">
         <p class="photo-caption">Het interieur van de Kerk van Goede Bijstand &#169; Jean-Paul Remy / visit.brussels</p>
@@ -499,7 +488,6 @@ const pages = {
         </div>
       </div>
 
-      <!-- ── HOMILIES ── -->
       <div id="vsub-homilies" class="vsub" style="display:none;">
         <p style="font-style:italic;color:var(--muted);margin-bottom:1rem;">Homilies van vieringen in de Kerk van Goede Bijstand.</p>
         <ul class="archief-lijst">
@@ -536,7 +524,6 @@ const pages = {
         </ul>
       </div>
 
-      <!-- ── BEZINNINGSTEKSTEN ── -->
       <div id="vsub-bezinning" class="vsub" style="display:none;">
         <p style="font-style:italic;color:var(--muted);margin-bottom:1rem;">Bezinningsteksten, getuigenissen en spirituele reflecties.</p>
         <ul class="archief-lijst">
@@ -643,7 +630,7 @@ const pages = {
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/20200324_GebedOmInzichtEnMoed/" target="_blank">Gebed om inzicht en moed</a> <span class="al-datum">24 maart 2020</span></li>
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/20200322_Lockdown/" target="_blank">Lockdown</a> <span class="al-datum">22 maart 2020</span></li>
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/20200320_MaarDeLenteWistHetNiet/" target="_blank">Maar de lente wist het niet</a> <span class="al-datum">20 maart 2020</span></li>
-          <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/LeMessageDuChanteurRwandaisKizitoMihigoDoitEtreEntendu/" target="_blank">Le message du chanteur rwandais Kizito Mihigo</a> <span class="al-datum">4 maart 2020</span></li>
+          <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/LeMessageDuChanteurRwandaisKizitoMihigoDoetEtreEntendu/" target="_blank">Le message du chanteur rwandais Kizito Mihigo</a> <span class="al-datum">4 maart 2020</span></li>
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/Allerheiligen2019/" target="_blank">Allerheiligen</a> <span class="al-datum">1 november 2019</span></li>
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/DeGebarstenKlok/" target="_blank">De gebarsten klok</a> <span class="al-datum">8 februari 2018</span></li>
           <li><a href="http://www.goedebijstand.be/Vieringen/Bezinningsteksten/GeenPlaatsVoorGeloofInOnzeMedia/" target="_blank">Geen plaats voor geloof in onze media</a> <span class="al-datum">10 december 2017</span></li>
@@ -669,7 +656,6 @@ const pages = {
         </ul>
       </div>
 
-      <!-- ── FOTO'S VIERINGEN ── -->
       <div id="vsub-fotos" class="vsub" style="display:none;">
         <p style="font-style:italic;color:var(--muted);margin-bottom:1rem;">Foto&rsquo;s van vieringen in de Kerk van Goede Bijstand.</p>
         <ul class="archief-lijst">
@@ -728,6 +714,7 @@ const pages = {
       <div class="kids-grid">
         <div class="kids-card" onclick="navigate('bijtjes')"><div class="icon">&#x1F41D;</div><h3>Goede Bijtjes</h3><p>Voor kinderen van de lagere school. Ze verkennen het geloof via verhalen, knutselen en gesprekken.</p><p><a>Meer info &#8594;</a></p></div>
         <div class="kids-card" onclick="navigate('mosterdzaadjes')"><div class="icon">&#x1F331;</div><h3>Mosterdzaadjes</h3><p>De kindernevendienst voor kinderen van de lagere school. Elke derde zondag van de maand gaan ze apart aan de slag tijdens de viering van 11&nbsp;uur.</p><p><a>Meer info &#8594;</a></p></div>
+        <div class="kids-card" onclick="navigate('vormsel')" style="grid-column:1/-1"><div class="icon">&#x271D;</div><h3>Vormsel &amp; Eerste Communie</h3><p>Wil je je kind laten vormen en zijn of haar eerste communie doen? We begeleiden je graag op weg naar dit dubbele feest &mdash; een mooie tradite van de Brusselse kerk.</p><p><a>Meer info &#8594;</a></p></div>
       </div>
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
       <h3>Jongeren</h3>
@@ -757,6 +744,26 @@ const pages = {
       <h3>Wanneer?</h3>
       <p>Elke <strong>derde zondag van de maand</strong> tijdens de viering van 11&nbsp;uur.</p>
       <p><a onclick="navigate('contact')">Neem contact op voor meer info &#8594;</a></p>
+    </section>` },
+
+  vormsel: { title:'Vormsel & Eerste Communie', content:`
+    <section>
+      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('kinderen')">Kinderen &amp; Jongeren</a> <span>&#8250;</span> Vormsel &amp; Eerste Communie</div>
+      <h2>&#x271D; Vormsel &amp; Eerste Communie</h2>
+      <p>Je wil graag dat je kind gevormd wordt en zijn of haar eerste communie doet? <strong>Proficiat!</strong></p>
+      <p>In verschillende Brusselse kerken staan we klaar om je op weg daarnaartoe te begeleiden. Misschien eerst een kort woordje uitleg vooraf.</p>
+      <h3>Vormsel en communie samen</h3>
+      <p>Anders dan elders in Belgi&#235;, vieren we in Brussel het <strong>vormsel en de eerste communie samen</strong>. Hiermee grijpen we terug naar een heel oude traditie binnen de christelijke Kerk, waarbij gedoopten eerst het vormsel ontvingen &mdash; als bevestiging van het doopsel &mdash; en pas daarna uitgenodigd werden om deel te nemen aan de eucharistie en dus hun eerste communie te doen.</p>
+      <h3>Leeftijd en traject</h3>
+      <p>Kinderen <strong>vanaf 8 jaar</strong> kunnen zich op dit dubbele feest beginnen voorbereiden. Die voorbereiding verschilt van kerk tot kerk en duurt meestal 2 of 3 jaar. Je kind zal dus gevormd worden en voor het eerst te communie gaan <strong>ten vroegste op de leeftijd van 10 jaar</strong>.</p>
+      <div class="partner-item" style="margin-top:1.2rem;">
+        <strong>2-jarig traject &mdash; start in het vierde leerjaar</strong>
+      </div>
+      <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
+      <h3>Contact</h3>
+      <p>Voor meer informatie en inschrijving, neem contact op met:<br>
+      <a href="mailto:mariette.dhondt@gmail.com">mariette.dhondt@gmail.com</a></p>
+      <p style="margin-top:1rem;"><a onclick="navigate('kinderen')">&#8592; Terug naar Kinderen &amp; Jongeren</a></p>
     </section>` },
 
   samenwerking: { title:'Samenwerking', content:`

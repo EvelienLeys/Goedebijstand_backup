@@ -352,7 +352,7 @@ const pages = {
       <p><strong>20.00&nbsp;u</strong> &mdash; Gebed &nbsp;|&nbsp; <strong>20.40&nbsp;u</strong> &mdash; Stilte met instrumentale Taiz&#233; liederen &nbsp;|&nbsp; <strong>21.00&nbsp;u</strong> &mdash; Kort gebed en zang. Dit herhalen we elk kwartier tot 22.30&nbsp;u.</p>
       <p>Voor meer informatie: <a href="mailto:bep.saintandre@gmail.com">bep.saintandre@gmail.com</a></p>
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
-      <h3>Datums 2026</h3>
+      <h3 id="taize-datums">Datums 2026</h3>
       <ul class="date-list">
         <li>Za 21 maart 2026</li><li>Za 18 april 2026</li>
         <li>Za 16 mei 2026</li><li>Za 20 juni 2026</li>
@@ -697,9 +697,9 @@ const pages = {
         <h3>Kerstbrief 2025 &mdash; De Kleine Zusters van Jezus</h3>
         <p>De Kleine Zusters van Jezus stuurden ook dit jaar een hartelijke Kerstbrief. Ze leven en werken te midden van de armen en gemarginaliseerden, in de geest van Charles de Foucauld.</p>
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
-        <h3>Gebed in de geest van Taiz&#233;</h3>
+       <h3>Gebed in de geest van Taiz&#233;</h3>
         <p><em>Elke derde zaterdag van de maand, 20.00&nbsp;u &mdash; Kerk van Goede Bijstand</em></p>
-        <p>Een moment van gebed, stilte en gezang. Iedereen is welkom. <a onclick="navigate('home')">Bekijk alle datums &#8594;</a></p>
+        <p>Een moment van gebed, stilte en gezang. Iedereen is welkom. <a onclick="navigate('home'); setTimeout(()=>{ const el=document.getElementById('taize-datums'); if(el) el.scrollIntoView({behavior:'smooth'}); }, 100);">Bekijk alle datums &#8594;</a></p>
         <img src="${INT}" alt="Kerkinterieur" class="church-photo" style="height:200px;">
         <p class="photo-caption">De kerk &#8217;s avonds &mdash; een plek voor rust en ontmoeting &#169; Jean-Paul Remy / visit.brussels</p>
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>

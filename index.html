@@ -24,6 +24,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'EB Garamond', Georgia, serif; background: var(--sky); color: var(--text); font-size: 18px; line-height: 1.75; }
 
+  /* ── HEADER ── */
   header { background: linear-gradient(160deg, var(--blue-navy) 0%, var(--blue-deep) 60%, var(--blue-mid) 100%); color: #fff; text-align: center; padding: 0; border-bottom: 4px solid var(--gold); cursor: pointer; position: relative; overflow: hidden; }
   .hero-photo { width: 100%; height: 320px; object-fit: cover; object-position: center 40%; display: block; opacity: 0.45; }
   .hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; }
@@ -31,17 +32,20 @@
   header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 600; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.6); letter-spacing: 0.04em; }
   header p.subtitle { font-style: italic; color: var(--gold-lt); font-size: 1.1rem; margin-top: 0.4rem; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
 
+  /* ── NAV ── */
   nav { background: var(--blue-deep); display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(10,30,60,0.3); }
   nav a { color: #cfe2f5; text-decoration: none; padding: 0.7rem 1.2rem; font-family: 'EB Garamond', serif; font-size: 0.92rem; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.2s, color 0.2s; border-right: 1px solid rgba(255,255,255,0.08); cursor: pointer; }
   nav a:last-child { border-right: none; }
   nav a:hover, nav a.active { background: var(--gold); color: var(--blue-navy); font-weight: 600; }
 
+  /* ── LAYOUT ── */
   .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; display: grid; grid-template-columns: 1fr 310px; gap: 2.5rem; }
   @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
   main > section { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); animation: fadeIn 0.35s ease; }
   main > section:last-child { border-bottom: none; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+  /* ── TYPOGRAPHY ── */
   h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--blue-deep); font-weight: 600; margin-bottom: 0.9rem; padding-bottom: 0.45rem; border-bottom: 2px solid var(--gold); display: inline-block; }
   h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--blue-mid); font-style: italic; margin: 1.1rem 0 0.35rem; }
   p { margin-bottom: 0.75rem; }
@@ -49,12 +53,14 @@
   a:hover { color: var(--gold); }
   .ornament { text-align: center; color: var(--gold); font-size: 1.2rem; letter-spacing: 6px; margin: 1.5rem 0; }
 
+  /* ── IMAGES ── */
   .church-photo { width: 100%; border-radius: 4px; border: 3px solid var(--pale-blue); box-shadow: 0 4px 18px rgba(15,40,80,0.18); margin: 1.2rem 0; display: block; object-fit: cover; }
   .photo-caption { font-size: 0.82rem; color: var(--muted); font-style: italic; text-align: center; margin-top: -0.6rem; margin-bottom: 1rem; }
   .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
   .photo-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; border: 3px solid var(--pale-blue); box-shadow: 0 3px 12px rgba(15,40,80,0.15); }
   @media(max-width:600px){ .photo-grid { grid-template-columns: 1fr; } }
 
+  /* ── SUBNAV / BREADCRUMB ── */
   .breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.4rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border); }
   .breadcrumb span { color: var(--gold); margin: 0 0.4rem; }
   .subnav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem; padding-bottom: 1.2rem; border-bottom: 2px solid var(--pale-blue); }
@@ -62,17 +68,26 @@
   .subnav a:hover { background: var(--blue-mid); color: #fff; border-color: var(--blue-mid); }
   .subnav a.subnav-active { background: var(--blue-deep); color: #fff; border-color: var(--blue-deep); font-weight: 600; }
 
+  /* ── NEWS ITEMS ── */
   .news-item { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue-mid); padding: 0.9rem 1.2rem; margin-bottom: 0.9rem; border-radius: 3px; transition: box-shadow 0.2s, border-left-color 0.2s; cursor: pointer; }
   .news-item:hover { box-shadow: 0 3px 14px rgba(30,80,140,0.14); border-left-color: var(--gold); }
   .news-item .tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue-mid); font-weight: 500; margin-bottom: 0.2rem; }
   .news-item .ni-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--blue-navy); }
   .news-item:hover .ni-title { color: var(--blue-mid); }
+  /* static news-item (overlijden) — no hover cursor */
+  .news-item.static { cursor: default; }
+  .news-item.static:hover { box-shadow: none; border-left-color: var(--blue-mid); }
+  .ni-title-lg { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .ni-body { font-size: 0.92rem; color: var(--muted); }
+  .ni-links { font-size: 0.87rem; }
 
+  /* ── TABLES ── */
   .viering-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.95rem; }
   .viering-table th { background: var(--blue-deep); color: #fff; padding: 0.5rem 0.8rem; text-align: left; font-family: 'Playfair Display', serif; font-weight: 400; }
   .viering-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
   .viering-table tr:nth-child(even) td { background: var(--pale-blue); }
 
+  /* ── SIDEBAR ── */
   aside { font-size: 0.95rem; }
   .sidebar-box { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--blue-mid); padding: 1.2rem 1.2rem 1rem; margin-bottom: 1.6rem; border-radius: 3px; box-shadow: 0 2px 8px rgba(30,80,140,0.07); }
   .sidebar-box h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-style: normal; font-weight: 600; color: var(--blue-deep); text-transform: uppercase; letter-spacing: 0.07em; margin: 0 0 0.65rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--pale-blue); }
@@ -81,6 +96,7 @@
   .sidebar-box .address { line-height: 1.5; color: var(--muted); font-style: italic; font-size: 0.88rem; }
   .sidebar-photo { width: 100%; border-radius: 3px; margin-bottom: 1rem; border: 2px solid var(--pale-blue); display: block; object-fit: cover; height: 160px; }
 
+  /* ── CONTACT FORM ── */
   .contact-form { display: grid; gap: 1rem; margin-top: 1rem; }
   .contact-form label { font-size: 0.88rem; color: var(--muted); display: block; margin-bottom: 0.2rem; }
   .contact-form input, .contact-form textarea { width: 100%; padding: 0.55rem 0.8rem; border: 1px solid var(--border); background: #fff; font-family: 'EB Garamond', serif; font-size: 1rem; color: var(--text); border-radius: 3px; outline: none; transition: border-color 0.2s; }
@@ -89,8 +105,10 @@
   .btn { display: inline-block; padding: 0.6rem 1.6rem; background: var(--blue-deep); color: #fff; border: none; font-family: 'EB Garamond', serif; font-size: 1rem; letter-spacing: 0.06em; cursor: pointer; transition: background 0.2s; border-radius: 3px; }
   .btn:hover { background: var(--blue-navy); }
 
+  /* ── HOMILIE ── */
   .homilie { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue-mid); padding: 1.5rem 1.8rem; margin-top: 1rem; border-radius: 3px; line-height: 1.9; }
 
+  /* ── KIDS ── */
   .kids-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem; }
   @media(max-width:600px){ .kids-grid { grid-template-columns: 1fr; } }
   .kids-card { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem; text-align: center; cursor: pointer; transition: box-shadow 0.2s, transform 0.2s; }
@@ -98,10 +116,12 @@
   .kids-card .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .kids-card h3 { font-style: normal; color: var(--blue-deep); margin: 0 0 0.5rem; }
 
+  /* ── PARTNERS ── */
   .partners { display: grid; gap: 1rem; margin-top: 1rem; }
   .partner-item { background: var(--white); border: 1px solid var(--border); padding: 1rem 1.3rem; border-radius: 3px; border-left: 4px solid var(--blue-mid); }
   .partner-item strong { color: var(--blue-deep); }
 
+  /* ── MAP ── */
   .map-box { background: var(--pale-blue); border: 1px solid var(--border); padding: 1.5rem; text-align: center; color: var(--muted); font-style: italic; border-radius: 4px; margin-top: 1rem; }
 
   /* ── AGENDA ── */
@@ -125,6 +145,7 @@
   .ev-nacht { color: #2d6a9f; }
   .agenda-legenda { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.55rem; font-size: 0.78rem; color: var(--muted); font-style: italic; }
 
+  /* ── ARCHIEF ── */
   .archief-lijst { list-style: none; margin: 0; padding: 0; }
   .archief-lijst li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.32rem 0; border-bottom: 1px solid var(--pale-blue); font-size: 0.93rem; }
   .archief-lijst li:last-child { border-bottom: none; }
@@ -132,15 +153,19 @@
   .archief-lijst a:hover { color: var(--gold); }
   .al-datum { font-size: 0.78rem; color: var(--muted); white-space: nowrap; font-style: italic; flex-shrink: 0; }
 
+  /* ── PAULUS BOX ── */
   .paulus-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); padding: 1.3rem 1.7rem; border-radius: 3px; margin-top: 0.9rem; box-shadow: 0 2px 8px rgba(15,40,80,0.07); }
   .paulus-box h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--blue-deep); font-style: normal; margin: 0 0 0.6rem; }
   .paulus-knop { display: inline-block; margin-top: 0.7rem; padding: 0.5rem 1.3rem; background: var(--blue-deep); color: #fff; font-family: 'EB Garamond', serif; font-size: 0.94rem; letter-spacing: 0.04em; text-decoration: none; border-radius: 3px; transition: background 0.2s; }
   .paulus-knop:hover { background: var(--gold); color: var(--blue-navy); text-decoration: none; }
 
+  /* ── ACTIVITEITEN SUBNAV ── */
   .act-subnav { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.6rem; padding-bottom: 1rem; border-bottom: 2px solid var(--pale-blue); }
   .act-subnav a { display: inline-block; padding: 0.35rem 0.9rem; background: var(--pale-blue); color: var(--blue-deep); text-decoration: none; border-radius: 3px; font-size: 0.88rem; font-family: 'EB Garamond', serif; border: 1px solid var(--border); transition: background 0.2s, color 0.2s; cursor: pointer; }
   .act-subnav a:hover { background: var(--blue-mid); color: #fff; border-color: var(--blue-mid); }
   .act-subnav a.act-actief { background: var(--blue-deep); color: #fff; border-color: var(--blue-deep); font-weight: 600; }
+
+  /* ── FOTO GALERIJ ── */
   .foto-categorie { margin-bottom: 2.2rem; }
   .foto-cat-titel { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--blue-mid); font-style: normal; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; margin-bottom: 0.8rem; }
   .foto-omschr { font-style: italic; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
@@ -150,14 +175,16 @@
   .foto-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .foto-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #7a9ec0; font-size: 0.74rem; font-family: 'EB Garamond', serif; gap: 0.35rem; text-align: center; padding: 0.4rem; }
   .foto-ph .fi { font-size: 1.7rem; opacity: 0.45; }
+  @media(max-width:600px) { .foto-grid { grid-template-columns: 1fr 1fr; } }
 
+  /* ── LIGHTBOX ── */
   #lightbox { display: none; position: fixed; inset: 0; background: rgba(8,18,36,0.95); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; }
   #lightbox.open { display: flex; }
   #lightbox img { max-width: 88vw; max-height: 82vh; object-fit: contain; border: 2px solid var(--gold); border-radius: 3px; }
   #lb-sluit { position: absolute; top: 1rem; right: 1.5rem; color: var(--gold-lt); font-size: 2rem; cursor: pointer; line-height: 1; }
   #lb-cap { margin-top: 0.8rem; color: var(--gold-lt); font-size: 0.86rem; font-style: italic; }
 
-  /* ── BEHEERPANEEL ── */
+  /* ── ADMIN PANEL ── */
   #admin-overlay { display: none; position: fixed; inset: 0; background: rgba(8,18,36,0.7); z-index: 3000; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem; }
   #admin-overlay.open { display: flex; }
   #admin-panel { background: var(--white); border-radius: 6px; border-top: 4px solid var(--gold); box-shadow: 0 8px 40px rgba(10,30,60,0.4); width: 100%; max-width: 700px; padding: 2rem; position: relative; }
@@ -188,17 +215,15 @@
   .ev-rij .ev-naam { color: var(--blue-navy); }
   .ev-rij .ev-type-badge { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.1rem 0.4rem; border-radius: 2px; background: var(--pale-blue); color: var(--blue-mid); flex-shrink: 0; }
   .ev-leeg { font-style: italic; color: var(--muted); font-size: 0.9rem; padding: 0.5rem 0; }
-  .admin-trigger { position: fixed; bottom: 1.5rem; right: 1.5rem; background: var(--blue-deep); color: var(--gold-lt); border: 2px solid var(--gold); border-radius: 50px; padding: 0.55rem 1.2rem; font-family: 'EB Garamond', serif; font-size: 0.88rem; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 4px 16px rgba(10,30,60,0.3); transition: background 0.2s, transform 0.15s; z-index: 999; display: flex; align-items: center; gap: 0.5rem; }
+  .admin-trigger { position: static; background: var(--blue-deep); color: var(--gold-lt); border: 2px solid var(--gold); border-radius: 50px; padding: 0.55rem 1.2rem; font-family: 'EB Garamond', serif; font-size: 0.88rem; letter-spacing: 0.06em; cursor: pointer; box-shadow: 0 4px 16px rgba(10,30,60,0.3); transition: background 0.2s, transform 0.15s; z-index: 999; display: inline-flex; align-items: center; gap: 0.5rem; }
   .admin-trigger:hover { background: var(--gold); color: var(--blue-navy); transform: translateY(-2px); }
 
+  /* ── FOOTER ── */
   footer { background: linear-gradient(135deg, var(--blue-navy) 0%, var(--blue-deep) 100%); color: #cfe2f5; text-align: center; padding: 2rem 1rem; font-size: 0.88rem; border-top: 4px solid var(--gold); margin-top: 1rem; }
   footer a { color: var(--gold-lt); }
   footer .footer-cross { font-size: 2rem; color: var(--gold); display: block; margin-bottom: 0.6rem; }
 
-  @media(max-width:600px) {
-    .agenda-dag { grid-template-columns: 78px 1fr; }
-    .foto-grid { grid-template-columns: 1fr 1fr; }
-  }
+  @media(max-width:600px) { .agenda-dag { grid-template-columns: 78px 1fr; } }
 </style>
 </head>
 <body>
@@ -220,6 +245,7 @@
   <a onclick="navigate('kinderen')"     data-page="kinderen">Kinderen &amp; Jongeren</a>
   <a onclick="navigate('schelp')"       data-page="schelp">De Schelp</a>
   <a onclick="navigate('samenwerking')" data-page="samenwerking">Samenwerking</a>
+  <a onclick="navigate('sacramenten')"  data-page="sacramenten">Sacramenten</a>
   <a onclick="navigate('overlijden')"   data-page="overlijden">Overlijden</a>
   <a onclick="navigate('contact')"      data-page="contact">Contact</a>
 </nav>
@@ -229,17 +255,15 @@
   <aside id="sidebar"></aside>
 </div>
 
-<button class="admin-trigger" onclick="openAdmin()">&#9998; Beheer agenda</button>
-
 <div id="admin-overlay">
   <div id="admin-login" style="background:#fff;border-radius:6px;border-top:4px solid var(--gold);box-shadow:0 8px 40px rgba(10,30,60,0.4);width:100%;max-width:340px;padding:2rem;text-align:center;">
-  <p style="font-family:'Playfair Display',serif;color:var(--blue-deep);font-size:1.1rem;margin-bottom:1rem;">Agendabeheer</p>
-  <input type="password" id="adm-pw-input" placeholder="Wachtwoord"
-    onkeydown="if(event.key==='Enter')checkPw()"
-    style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:3px;font-family:'EB Garamond',serif;font-size:1rem;outline:none;margin-bottom:0.7rem;">
-  <p id="adm-pw-fout" style="display:none;color:#c0392b;font-size:0.85rem;margin-bottom:0.6rem;">Onjuist wachtwoord.</p>
-  <button class="btn-primary" onclick="checkPw()" style="width:100%;">Aanmelden</button>
-</div>
+    <p style="font-family:'Playfair Display',serif;color:var(--blue-deep);font-size:1.1rem;margin-bottom:1rem;">Agendabeheer</p>
+    <input type="password" id="adm-pw-input" placeholder="Wachtwoord"
+      onkeydown="if(event.key==='Enter')checkPw()"
+      style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:3px;font-family:'EB Garamond',serif;font-size:1rem;outline:none;margin-bottom:0.7rem;">
+    <p id="adm-pw-fout" style="display:none;color:#c0392b;font-size:0.85rem;margin-bottom:0.6rem;">Onjuist wachtwoord.</p>
+    <button class="btn-primary" onclick="checkPw()" style="width:100%;">Aanmelden</button>
+  </div>
   <div id="admin-panel">
     <button id="admin-close" onclick="closeAdmin()">&#x2715;</button>
     <h2>Agendabeheer</h2>
@@ -296,14 +320,39 @@
 // ═══════════════════════════════════════════════════════
 // CONSTANTEN
 // ═══════════════════════════════════════════════════════
-const EXT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Exterieur_Knop%204%201%20Icoon%20Kerkgebouw%20Goede%20Bijstand.jpg';
-const INT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Interieur_Onze-Lieve-Vrouw%20van%20Goede%20Bijstandkerk_JPR4243_%C2%A9%20visit.brussels%20-%20Jean-Paul%20Remy.jpg';
-const ALT = 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Extra%20%28kunstwerk%20detail%29_Altaar%20Goede%20Bijstandskerk_0.jpg';
+const IMG = {
+  ext: 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Exterieur_Knop%204%201%20Icoon%20Kerkgebouw%20Goede%20Bijstand.jpg',
+  int: 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Interieur_Onze-Lieve-Vrouw%20van%20Goede%20Bijstandkerk_JPR4243_%C2%A9%20visit.brussels%20-%20Jean-Paul%20Remy.jpg',
+  alt: 'https://www.flemishmastersinsitu.com/sites/vlaamsemeestersinsitu/files/public/media/images/2023-06/Aangepast%20Extra%20%28kunstwerk%20detail%29_Altaar%20Goede%20Bijstandskerk_0.jpg'
+};
 
-const DNKORT = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
-const MNKORT = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
-const MNLANG = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];
+const DN  = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
+const MNK = ["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec"];
+const MNL = ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"];
 const EVICON = { viering:"✝", activiteit:"◆", muziek:"♫", taize:"✦", nacht:"🌙" };
+
+// ═══════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════
+
+/** ISO datumstring voor een Date-object */
+function datumSleutel(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+/** Leesbare datum in het Nederlands (bv. "04 apr 2026") */
+function formatDatumNl(s) {
+  if (!s) return '';
+  const [jr, mn, dg] = s.split('-');
+  return `${dg} ${MNK[parseInt(mn, 10) - 1]} ${jr}`;
+}
+
+/** Verberg alle elementen die overeenkomen met selector, toon degene met id */
+function showOnly(selector, id) {
+  document.querySelectorAll(selector).forEach(el => el.style.display = 'none');
+  const t = document.getElementById(id);
+  if (t) t.style.display = 'block';
+}
 
 // ═══════════════════════════════════════════════════════
 // AGENDA DATA
@@ -312,10 +361,12 @@ const VASTE_DATUMS = [
   { datum:"2026-04-04", tijd:"21:00", type:"viering", tekst:"Paaswake — Goede Bijstand" },
 ];
 
+/** Genereer Taizé-gebeden (elke 3e zaterdag van de maand) voor de komende 35 dagen */
 function genereerTaize() {
   const resultaat = [];
   const nu = new Date(); nu.setHours(0,0,0,0);
   const einde = new Date(nu); einde.setDate(nu.getDate() + 35);
+
   for (let m = 0; m < 3; m++) {
     const jr = nu.getFullYear() + Math.floor((nu.getMonth() + m) / 12);
     const mn = (nu.getMonth() + m) % 12;
@@ -323,55 +374,55 @@ function genereerTaize() {
     for (let dag = 1; dag <= 31; dag++) {
       const d = new Date(jr, mn, dag);
       if (d.getMonth() !== mn) break;
-      if (d.getDay() === 6) {
-        teller++;
-        if (teller === 3) {
-          if (d >= nu && d <= einde) {
-            const key = `${jr}-${String(mn+1).padStart(2,'0')}-${String(dag).padStart(2,'0')}`;
-            resultaat.push({ datum: key, tijd: "20:00", type: "taize", tekst: "Gebed in de geest van Taizé" });
-          }
-          break;
+      if (d.getDay() === 6 && ++teller === 3) {
+        if (d >= nu && d <= einde) {
+          resultaat.push({
+            datum: datumSleutel(d),
+            tijd: "20:00", type: "taize",
+            tekst: "Gebed in de geest van Taizé"
+          });
         }
+        break;
       }
     }
   }
   return resultaat;
 }
 
+/** Genereer Bijstand by Night (vrijdagen mei–aug) voor de komende 35 dagen */
 function genereerBijstandByNight() {
   const resultaat = [];
   const nu = new Date(); nu.setHours(0,0,0,0);
   const einde = new Date(nu); einde.setDate(nu.getDate() + 35);
+
   for (let d = new Date(nu); d <= einde; d.setDate(d.getDate() + 1)) {
     const mn = d.getMonth();
     if (d.getDay() === 5 && mn >= 4 && mn <= 7) {
-      const key = `${d.getFullYear()}-${String(mn+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-      resultaat.push({ datum: key, tijd: "18:00", type: "nacht", tekst: "Bijstand by Night (18–22 u)" });
+      resultaat.push({
+        datum: datumSleutel(d),
+        tijd: "18:00", type: "nacht",
+        tekst: "Bijstand by Night (18–22 u)"
+      });
     }
   }
   return resultaat;
 }
 
+// LocalStorage voor beheerder-toevoegingen
 const STORAGE_KEY = 'gb_agenda_extra';
-function laadExtra() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
-  catch(e) { return []; }
-}
-function slaOpExtra(arr) { localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+const laadExtra   = () => { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; } };
+const slaOpExtra  = arr => localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
 
+/** Combineer alle evenementen in een datum→[events] kaart */
 function getAlleEvents() {
   const alle = [...VASTE_DATUMS, ...genereerTaize(), ...genereerBijstandByNight(), ...laadExtra()];
-  const kaart = {};
-  alle.forEach(ev => {
-    if (!kaart[ev.datum]) kaart[ev.datum] = [];
-    kaart[ev.datum].push(ev);
-  });
-  Object.keys(kaart).forEach(d => kaart[d].sort((a,b) => (a.tijd||'00:00').localeCompare(b.tijd||'00:00')));
-  return kaart;
-}
-
-function datumSleutel(d) {
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return alle.reduce((kaart, ev) => {
+    (kaart[ev.datum] = kaart[ev.datum] || []).push(ev);
+    return kaart;
+  }, Object.fromEntries(
+    Object.entries(alle.reduce((k, ev) => { k[ev.datum] = k[ev.datum] || []; k[ev.datum].push(ev); return k; }, {}))
+          .map(([d, evs]) => [d, evs.sort((a,b) => (a.tijd||'00:00').localeCompare(b.tijd||'00:00'))])
+  ));
 }
 
 // ═══════════════════════════════════════════════════════
@@ -380,26 +431,24 @@ function datumSleutel(d) {
 function agendaHTML() {
   const alleEvents = getAlleEvents();
   const nu = new Date(); nu.setHours(0,0,0,0);
-  let h = '<div class="agenda-wrapper">';
-  let huidigeMaand = -1;
-  let aantalDagen = 0;
+  let html = '<div class="agenda-wrapper">';
+  let huidigeMaand = -1, aantalDagen = 0;
 
   for (let i = 0; i < 35; i++) {
-    const d = new Date(nu); d.setDate(nu.getDate() + i);
+    const d  = new Date(nu); d.setDate(nu.getDate() + i);
     const dw = d.getDay(), mn = d.getMonth(), jr = d.getFullYear(), nr = d.getDate();
-    const s = datumSleutel(d);
+    const s  = datumSleutel(d);
 
+    // Vaste wekelijkse vieringen
     const vast = [];
     if (dw === 0) vast.push({ tijd:"11:00", type:"viering", tekst:"Zondagsviering — Goede Bijstand" });
     if (dw === 6) vast.push({ tijd:"16:30", type:"viering", tekst:"Mis — Finis Terrae" });
 
-    const extra = alleEvents[s] || [];
+    // Dedupliceer
     const gezien = new Set();
-    const evs = [...vast, ...extra].filter(ev => {
-      const sleutel = (ev.tijd||'') + '|' + ev.tekst;
-      if (gezien.has(sleutel)) return false;
-      gezien.add(sleutel);
-      return true;
+    const evs = [...vast, ...(alleEvents[s] || [])].filter(ev => {
+      const k = `${ev.tijd||''}|${ev.tekst}`;
+      return gezien.has(k) ? false : (gezien.add(k), true);
     });
 
     if (!evs.length) continue;
@@ -407,35 +456,43 @@ function agendaHTML() {
 
     if (mn !== huidigeMaand) {
       huidigeMaand = mn;
-      h += `<div class="agenda-maand-header">${MNLANG[mn]} ${jr}</div>`;
+      html += `<div class="agenda-maand-header">${MNL[mn]} ${jr}</div>`;
     }
 
     const klassen = ['agenda-dag', (dw===0||dw===6)?'weekend':'', i===0?'vandaag':''].filter(Boolean).join(' ');
-    h += `<div class="${klassen}"><div class="datum-cel">
-      <span class="dag-naam">${i===0?'Vandaag':DNKORT[dw]}</span>
-      <span class="dag-nr">${nr}</span>
-      <span class="maand-kort">${MNKORT[mn]}</span>
-    </div><div class="ev-cel">`;
-    evs.forEach(ev => {
-      const kl = ev.type==='taize' ? ' ev-taize' : ev.type==='nacht' ? ' ev-nacht' : '';
-      h += `<div class="evenement">
-        <span class="ev-tijd">${ev.tijd||''}</span>
-        <span class="ev-icoon${kl}">${EVICON[ev.type]||'✝'}</span>
-        <span class="${kl.trim()}">${ev.tekst}</span>
-      </div>`;
-    });
-    h += `</div></div>`;
+    html += `<div class="${klassen}">
+      <div class="datum-cel">
+        <span class="dag-naam">${i===0?'Vandaag':DN[dw]}</span>
+        <span class="dag-nr">${nr}</span>
+        <span class="maand-kort">${MNK[mn]}</span>
+      </div>
+      <div class="ev-cel">${evs.map(ev => {
+        const kl = ev.type==='taize' ? ' ev-taize' : ev.type==='nacht' ? ' ev-nacht' : '';
+        return `<div class="evenement">
+          <span class="ev-tijd">${ev.tijd||''}</span>
+          <span class="ev-icoon${kl}">${EVICON[ev.type]||'✝'}</span>
+          <span class="${kl.trim()}">${ev.tekst}</span>
+        </div>`;
+      }).join('')}</div>
+    </div>`;
   }
 
-  if (!aantalDagen) h += `<div style="padding:0.7rem 1rem;font-style:italic;color:var(--muted);font-size:0.88rem;">Geen activiteiten gepland in de komende 5 weken.</div>`;
-  h += `</div><div class="agenda-legenda">
-    <span>✝ Viering</span>
-    <span style="color:var(--blue-mid);font-style:italic;">✦ Taizé</span>
-    <span>🌙 Bijstand by Night</span>
-    <span>◆ Activiteit</span>
-    <span>♫ Muziek/Concert</span>
-  </div>`;
-  return h;
+  if (!aantalDagen) html += `<div style="padding:0.7rem 1rem;font-style:italic;color:var(--muted);font-size:0.88rem;">Geen activiteiten gepland in de komende 5 weken.</div>`;
+
+  html += `</div>
+    <div class="agenda-legenda">
+      <span>✝ Viering</span>
+      <span style="color:var(--blue-mid);font-style:italic;">✦ Taizé</span>
+      <span>🌙 Bijstand by Night</span>
+      <span>◆ Activiteit</span>
+      <span>♫ Muziek/Concert</span>
+    </div>
+    <div style="margin-top:0.8rem;text-align:right;">
+      <button class="admin-trigger" onclick="openAdmin()">
+        &#9998; Beheer agenda &nbsp;<span style="font-size:0.72rem;opacity:0.75;font-style:italic;">— Voorbehouden aan beheerders</span>
+      </button>
+    </div>`;
+  return html;
 }
 
 // ═══════════════════════════════════════════════════════
@@ -448,6 +505,7 @@ function openAdmin() {
   document.getElementById('adm-pw-input').value = '';
   setTimeout(() => document.getElementById('adm-pw-input').focus(), 100);
 }
+
 function checkPw() {
   if (document.getElementById('adm-pw-input').value === 'goedebijstand') {
     document.getElementById('admin-login').style.display = 'none';
@@ -459,14 +517,18 @@ function checkPw() {
     document.getElementById('adm-pw-input').focus();
   }
 }
+
 function closeAdmin() { document.getElementById('admin-overlay').classList.remove('open'); }
-document.getElementById('admin-overlay').addEventListener('click', function(e) { if (e.target===this) closeAdmin(); });
+
+document.getElementById('admin-overlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeAdmin(); });
 
 function adminTab(k) {
-  document.getElementById('atab-toevoegen').style.display = k==='toevoegen' ? 'block' : 'none';
-  document.getElementById('atab-lijst').style.display     = k==='lijst'      ? 'block' : 'none';
-  document.querySelectorAll('.admin-tab').forEach((t,idx) => t.classList.toggle('actief', (k==='toevoegen'&&idx===0)||(k==='lijst'&&idx===1)));
-  if (k==='lijst') renderEvLijst();
+  document.getElementById('atab-toevoegen').style.display = k === 'toevoegen' ? 'block' : 'none';
+  document.getElementById('atab-lijst').style.display     = k === 'lijst'     ? 'block' : 'none';
+  document.querySelectorAll('.admin-tab').forEach((t, i) =>
+    t.classList.toggle('actief', (k==='toevoegen' && i===0) || (k==='lijst' && i===1))
+  );
+  if (k === 'lijst') renderEvLijst();
 }
 
 function voegToe() {
@@ -475,13 +537,14 @@ function voegToe() {
   const tekst = document.getElementById('adm-tekst').value.trim();
   const type  = document.getElementById('adm-type').value;
   if (!datum || !tekst) { alert('Vul minstens een datum en een omschrijving in.'); return; }
+
   const extra = laadExtra();
   extra.push({ datum, tijd, type, tekst });
   slaOpExtra(extra);
-  document.getElementById('adm-datum').value = '';
-  document.getElementById('adm-tijd').value  = '';
-  document.getElementById('adm-tekst').value = '';
-  document.getElementById('adm-type').value  = 'viering';
+
+  ['adm-datum','adm-tijd','adm-tekst'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('adm-type').value = 'viering';
+
   const succ = document.getElementById('adm-success');
   succ.classList.add('show');
   setTimeout(() => succ.classList.remove('show'), 3000);
@@ -489,57 +552,119 @@ function voegToe() {
 }
 
 function herlaadAgendaDOM() {
-  document.querySelectorAll('.agenda-wrapper').forEach(el => { el.outerHTML = agendaHTML(); });
-  document.querySelectorAll('.agenda-legenda').forEach((el,i) => { if (i>0) el.remove(); });
+  // Vervang het eerste agenda-wrapper blok in de pagina
+  const wrapper = document.querySelector('.agenda-wrapper');
+  if (!wrapper) return;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = agendaHTML();
+  wrapper.closest('.agenda-wrapper')?.replaceWith(...tmp.childNodes);
 }
 
 function renderEvLijst() {
   const extra = laadExtra();
-  const container = document.getElementById('adm-ev-lijst');
   let h = '<p style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:0.8rem;">Vaste eenmalige vieringen:</p>';
-  VASTE_DATUMS.forEach(ev => {
-    h += `<div class="ev-rij"><div class="ev-info"><span class="ev-datum-tag">${formatDatumNl(ev.datum)} ${ev.tijd||''}</span><span class="ev-naam">${ev.tekst}</span></div><span class="ev-type-badge">${ev.type}</span></div>`;
-  });
+
+  const evRij = (ev, idx) => {
+    const verwijder = idx !== undefined ? `&nbsp;<button class="btn-danger" onclick="verwijderEv(${idx})">×</button>` : '';
+    return `<div class="ev-rij">
+      <div class="ev-info">
+        <span class="ev-datum-tag">${formatDatumNl(ev.datum)} ${ev.tijd||''}</span>
+        <span class="ev-naam">${ev.tekst}</span>
+      </div>
+      <span class="ev-type-badge">${ev.type}</span>${verwijder}
+    </div>`;
+  };
+
+  h += VASTE_DATUMS.map(ev => evRij(ev)).join('');
   h += '<p style="font-size:0.82rem;color:var(--muted);font-style:italic;margin:1rem 0 0.5rem;">Uw toegevoegde evenementen:</p>';
-  if (!extra.length) {
-    h += '<div class="ev-leeg">Nog geen evenementen toegevoegd.</div>';
-  } else {
-    [...extra].sort((a,b) => a.datum.localeCompare(b.datum)).forEach(ev => {
-      const origIdx = extra.findIndex(e => e.datum===ev.datum && e.tekst===ev.tekst && e.tijd===ev.tijd);
-      h += `<div class="ev-rij"><div class="ev-info"><span class="ev-datum-tag">${formatDatumNl(ev.datum)} ${ev.tijd||''}</span><span class="ev-naam">${ev.tekst}</span></div><span class="ev-type-badge">${ev.type}</span>&nbsp;<button class="btn-danger" onclick="verwijderEv(${origIdx})">×</button></div>`;
-    });
-  }
-  container.innerHTML = h;
+  h += extra.length
+    ? [...extra].sort((a,b) => a.datum.localeCompare(b.datum))
+               .map((ev, i) => evRij(ev, extra.indexOf(ev))).join('')
+    : '<div class="ev-leeg">Nog geen evenementen toegevoegd.</div>';
+
+  document.getElementById('adm-ev-lijst').innerHTML = h;
 }
 
 function verwijderEv(idx) {
-  const extra = laadExtra(); extra.splice(idx,1); slaOpExtra(extra); renderEvLijst(); herlaadAgendaDOM();
-}
-
-function formatDatumNl(s) {
-  if (!s) return '';
-  const [jr,mn,dg] = s.split('-');
-  return `${dg} ${MNKORT[parseInt(mn,10)-1]} ${jr}`;
+  const extra = laadExtra();
+  extra.splice(idx, 1);
+  slaOpExtra(extra);
+  renderEvLijst();
+  herlaadAgendaDOM();
 }
 
 // ═══════════════════════════════════════════════════════
 // LIGHTBOX
 // ═══════════════════════════════════════════════════════
-function sluitLb() { document.getElementById('lightbox').classList.remove('open'); }
-document.addEventListener('keydown', e => { if (e.key==='Escape') { sluitLb(); closeAdmin(); } });
-document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target===this) sluitLb(); });
-
-// ═══════════════════════════════════════════════════════
-// HELPERS
-// ═══════════════════════════════════════════════════════
-function fotoBlok(titel, omschr, icoon) {
-  const ph = `<div class="foto-item"><div class="foto-ph"><span class="fi">${icoon}</span>Foto toevoegen</div></div>`;
-  return `<div class="foto-categorie"><h3 class="foto-cat-titel">${titel}</h3><p class="foto-omschr">${omschr}</p><div class="foto-grid">${ph}${ph}${ph}</div></div>`;
+function openLb(src, cap) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lb-cap').textContent = cap;
+  document.getElementById('lightbox').classList.add('open');
 }
 
-function getSidebar() {
-  return `
-  <img src="${EXT}" alt="Onze-Lieve-Vrouw van Goede Bijstand" class="sidebar-photo">
+function sluitLb() { document.getElementById('lightbox').classList.remove('open'); }
+
+document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) sluitLb(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { sluitLb(); closeAdmin(); } });
+
+// ═══════════════════════════════════════════════════════
+// FOTO GALERIJ
+// ═══════════════════════════════════════════════════════
+const GITHUB_API = 'https://api.github.com/repos/evelienleys/goedebijstand/git/trees/main?recursive=1';
+let fotoCache = null;
+
+async function laadFotos() {
+  if (fotoCache) return fotoCache;
+  try {
+    const data = await fetch(GITHUB_API).then(r => r.json());
+    fotoCache = data.tree
+      .filter(f => /\.(png|jpg|jpeg|gif|webp)$/i.test(f.path))
+      .map(f => ({
+        pad: f.path,
+        url: `https://raw.githubusercontent.com/evelienleys/goedebijstand/main/${f.path}`,
+        map: f.path.split('/').slice(0, -1).join('/') || 'Overig'
+      }));
+    return fotoCache;
+  } catch(e) { return []; }
+}
+
+async function renderFotoGalerij() {
+  const container = document.getElementById('asub-fotos');
+  if (!container) return;
+  container.innerHTML = `<p style="color:var(--muted);font-style:italic;font-size:0.9rem;">Foto's worden geladen…</p>`;
+
+  const fotos = await laadFotos();
+  if (!fotos.length) {
+    container.innerHTML = `<p style="color:var(--muted);font-style:italic;">Geen foto's gevonden in de repository.</p>`;
+    return;
+  }
+
+  // Groepeer per map
+  const mappen = fotos.reduce((acc, f) => {
+    (acc[f.map] = acc[f.map] || []).push(f);
+    return acc;
+  }, {});
+
+  container.innerHTML = Object.entries(mappen).sort(([a],[b]) => a.localeCompare(b)).map(([map, items]) => `
+    <div class="foto-categorie">
+      <h3 class="foto-cat-titel">${map.split('/').pop()}</h3>
+      <div class="foto-grid">
+        ${items.map(f => {
+          const naam = f.pad.split('/').pop().replace(/\.[^.]+$/, '').replace(/[_-]/g, ' ');
+          return `<div class="foto-item" onclick="openLb('${f.url}','${naam}')">
+            <img src="${f.url}" alt="${naam}" loading="lazy"
+                 onerror="this.parentElement.innerHTML='<div class=\\'foto-ph\\'><span class=\\'fi\\'>🖼</span>${naam}</div>'">
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+// SIDEBAR (gecached)
+// ═══════════════════════════════════════════════════════
+const SIDEBAR_HTML = `
+  <img src="${IMG.ext}" alt="Onze-Lieve-Vrouw van Goede Bijstand" class="sidebar-photo">
   <div class="sidebar-box">
     <h3>Vieringen</h3>
     <p><strong>Finis Terrae kerk</strong><br><span class="time">Elke zaterdag om 16.30&nbsp;u</span></p>
@@ -573,22 +698,215 @@ function getSidebar() {
     <h3>Steunen</h3>
     <p>Wilt u de parochie steunen?<br><a onclick="navigate('bijstand')">Meer info &#8594;</a></p>
   </div>`;
-}
 
+// ═══════════════════════════════════════════════════════
+// SUBNAV HELPERS
+// ═══════════════════════════════════════════════════════
 function showSub(k) {
-  document.querySelectorAll('.subpage').forEach(el => el.style.display='none');
-  const t = document.getElementById('sub-'+k); if (t) t.style.display='block';
-  document.querySelectorAll('[data-sub]').forEach(a => a.classList.toggle('subnav-active', a.dataset.sub===k));
+  showOnly('.subpage', 'sub-' + k);
+  document.querySelectorAll('[data-sub]').forEach(a => a.classList.toggle('subnav-active', a.dataset.sub === k));
 }
 function showVierSub(k) {
-  document.querySelectorAll('.vsub').forEach(el => el.style.display='none');
-  const t = document.getElementById('vsub-'+k); if (t) t.style.display='block';
-  document.querySelectorAll('[data-vsub]').forEach(a => a.classList.toggle('subnav-active', a.dataset.vsub===k));
+  showOnly('.vsub', 'vsub-' + k);
+  document.querySelectorAll('[data-vsub]').forEach(a => a.classList.toggle('subnav-active', a.dataset.vsub === k));
 }
 function showActSub(k) {
-  ['overzicht','fotos'].forEach(id => { const el=document.getElementById('asub-'+id); if(el) el.style.display=(id===k)?'block':'none'; });
-  document.querySelectorAll('[data-asub]').forEach(a => a.classList.toggle('act-actief', a.dataset.asub===k));
+  ['overzicht','fotos'].forEach(id => {
+    const el = document.getElementById('asub-' + id);
+    if (el) el.style.display = id === k ? 'block' : 'none';
+  });
+  document.querySelectorAll('[data-asub]').forEach(a => a.classList.toggle('act-actief', a.dataset.asub === k));
+  if (k === 'fotos') renderFotoGalerij();
 }
+
+// ═══════════════════════════════════════════════════════
+// HERBRUIKBARE TEMPLATE-HELPERS
+// ═══════════════════════════════════════════════════════
+
+/** Breadcrumb HTML */
+function breadcrumb(...stappen) {
+  // stappen = [ ['label', 'pageKey'], ..., 'huidig label' ]
+  const items = stappen.map((s, i) => {
+    if (i === stappen.length - 1) return typeof s === 'string' ? s : s[0];
+    const [label, key] = s;
+    return `<a onclick="navigate('${key}')">${label}</a><span>&#8250;</span>`;
+  });
+  return `<div class="breadcrumb">${items.join(' ')}</div>`;
+}
+
+/** Eén overlijdensbericht */
+function overlijdenItem(datum, naam, tekst, links = []) {
+  const linkHtml = links.map(([label, href]) =>
+    href.startsWith('http')
+      ? `<a href="${href}" target="_blank">${label} &#8594;</a>`
+      : `<a href="${href}" target="_blank">${label} &#8594;</a>`
+  ).join(' &nbsp;|&nbsp; ');
+
+  return `<div class="news-item static">
+    <div class="tag">Overlijden &mdash; ${datum}</div>
+    <div class="ni-title-lg">${naam}</div>
+    <p class="ni-body">${tekst}</p>
+    ${linkHtml ? `<p class="ni-links">${linkHtml}</p>` : ''}
+  </div>`;
+}
+
+/** Eén archief-item in een lijst */
+function archiefItem(href, label, datum = '') {
+  return `<li><a href="${href}" target="_blank">${label}</a>${datum ? `<span class="al-datum">${datum}</span>` : ''}</li>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// OVERLIJDEN DATA
+// ═══════════════════════════════════════════════════════
+const OVERLIJDENS = [
+  { datum:"24 oktober 2025", naam:"Paul Huyskens",
+    tekst:"Paul Huyskens, echtgenoot van Frank Benault, overleed op 24 oktober 2025 op 71-jarige leeftijd op de dienst palliatieve zorgen in Gasthuisberg. De begrafenis vond plaats in het crematorium van Evere op donderdag 30 oktober 2025 om 14 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_PaulHuyskens.pdf"]] },
+  { datum:"19 september 2025", naam:"Elizabeth Nijpels",
+    tekst:"Elizabeth Nijpels overleed op vrijdag 19 september 2025. De begrafenis vond plaats in de Sint-Jan Evangelistkerk te Tervuren op donderdag 25 september 2025 om 10 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Nijpels-Elisabeth-rb.indd - Overlijdensbericht_ElizabethNijpels.pdf"]] },
+  { datum:"12 september 2025", naam:"Gino Mattheeuws",
+    tekst:"Pastor Gino Mattheeuws, lid van ons team en voorganger van Goede Bijstand en Finis Terrae, overleed op vrijdag 12 september 2025. De begrafenis vond plaats in de Sint-Jozefskerk te Evere op zaterdag 20 september 2025 om 10.30 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_GinoMattheeuws.pdf"]] },
+  { datum:"18 augustus 2025", naam:"Rita Lecomte",
+    tekst:"Rita Lecomte overleed op maandag 18 augustus 2025. De begrafenis vond plaats in de kerk van O.L.V. Boodschap Ter Muilen te Liedekerke op maandag 25 augustus 2025 om 11.30 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_RitaLecomte.pdf"]] },
+  { datum:"15 augustus 2025", naam:"Pater Hugo Vangeel",
+    tekst:"Pater Hugo Vangeel overleed op vrijdag 15 augustus 2025. De begrafenis vond plaats in de parochiekerk van Sint-Rochus te Brussel op zaterdag 23 augustus 2025 om 11 uur. Op zaterdag 30 augustus 2025 om 10.30 uur was er een dankviering in de kerk van Herk-de-Stad.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_HugoVangeel.pdf"]] },
+  { datum:"14 augustus 2025", naam:"Jef Durant",
+    tekst:"Jef Durant overleed op donderdag 14 augustus 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op vrijdag 22 augustus 2025 om 10 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_JefDurant.pdf"]] },
+  { datum:"12 juli 2025", naam:"Frida De Boeck",
+    tekst:"Frida De Boeck overleed op zaterdag 12 juli 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op vrijdag 18 juli 2025 om 11 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_FridaDeBoeck.pdf"]] },
+  { datum:"3 juni 2025", naam:"Ruf Delcourt",
+    tekst:"Ruf Delcourt overleed op dinsdag 3 juni 2025. De begrafenis vond plaats in de kerk van O.-L.-Vrouw Boodschap te Liedekerke op zaterdag 14 juni 2025 om 11.30 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_JefDurant.pdf"]] },
+  { datum:"15 februari 2025", naam:"Jozef Van Rumste",
+    tekst:"Jozef Van Rumste overleed op zaterdag 15 februari 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op maandag 24 februari 2025 om 13 uur.",
+    links:[["Rouwbrief","Overlijden  2025/Overlijdensbericht_JozefVanRumste.pdf"]] },
+  { datum:"23 oktober 2024", naam:"Hugo Weckx",
+    tekst:"Hugo Weckx, echtgenoot en zielsgenoot van Frida, overleed op woensdag 23 oktober 2024. Het lichaam werd overgebracht naar onze kerk op vrijdag 25 oktober om 18 uur, met onthaalliturgie.",
+    links:[["Rouwbrief","Overlijden  2024/Overlijdensbericht_HugoWeckx.pdf"]] },
+  { datum:"31 juli 2024", naam:"Rachelle Synaeve",
+    tekst:"Rachelle Synaeve, mama van Sabine en Marc, oma van Tine en Wannes, overleed op woensdag 31 juli 2024. De begrafenis vond plaats in onze kerk op dinsdag 6 augustus om 10 uur.",
+    links:[["Rouwbrief","Overlijden  2024/Overlijdensbericht_RachelleSynaeve.pdf"],["Rouwprentje","Overlijden  2024/Overlijdensbericht_RachelleSynaeve_kaart.pdf"]] },
+  { datum:"27 juli 2024", naam:"Mark Van Liedekerke",
+    tekst:"Mark Van Liedekerke, echtgenoot van Eugenie Arijs, overleed op zaterdag 27 juli 2024. De begrafenis vond plaats in de parochiekerk Sint-Jan-Evangelist te Teralfene op vrijdag 2 augustus 2024 om 11 uur.",
+    links:[["Rouwbrief","Overlijden  2024/Overlijdensbericht_RachelleSynaeve.pdf"]] },
+  { datum:"12 juni 2024", naam:"Martine De Mot",
+    tekst:"Martine De Mot, zus van Johnny, overleed op woensdag 12 juni 2024. De begrafenis vond plaats in de Kerk van Goede Bijstand op zaterdag 22 juni om 11 uur.",
+    links:[["Rouwbrief","Overlijden  2024/Overlijdensbericht_MarkVanLiedekerke.pdf"]] },
+  { datum:"14 mei 2024", naam:"Paul Dewallef",
+    tekst:"Paul Dewallef (° 25 juli 1944, Anderlecht) overleed op 14 mei 2024. Leraar Grieks-Latijn, voorganger en voorzitter van de kerkraad in de Goede Bijstand, trouw medewerker van vzw De Overmolen. Hij schonk zijn lichaam aan het UZ Brussel.",
+    links:[["Bericht Johnny","Overlijden  2024/paul dewallef.png"]] },
+  { datum:"9 maart 2024", naam:"Cil Cloet",
+    tekst:"Cil Cloet overleed op zaterdag 9 maart 2024. De begrafenis vond plaats in de Onze-Lieve-Vrouwkerk te Beigem op zaterdag 16 maart om 10 uur.",
+    links:[["Rouwbrief","Overlijden  2024/Overlijdensbericht_CilCloet.pdf"]] },
+  { datum:"15 september 2023", naam:"Luc Vankrunkelsven",
+    tekst:"Luc Vankrunkelsven overleed op 15 september 2023 in Brazilië, tijdens een afscheidsreis naar zijn geliefde projecten aldaar. De begrafenis vond plaats in de abdijkerk van Averbode op vrijdag 6 oktober 2023 om 11 uur.",
+    links:[["Rouwbrief","Overlijden 2014 - 2023/Overlijden 2023/Overlijdensbericht_LucVankrunkelsven.pdf"],["In memoriam op MO","https://www.mo.be/wereldblog/luc-afscheid-van-een-broeder-het-zoeken-naar-verbinding"]] },
+  { datum:"14 februari 2023", naam:"Dries Van Cauter",
+    tekst:"Dries Van Cauter, onze oudste parochiaan en trouwe kerkganger, overleed op dinsdag 14 februari 2023. De begrafenis vond plaats in onze kerk op woensdag 22 februari om 11 uur.",
+    links:[["Rouwbrief","Overlijden 2023/Overlijdensbericht_DriesVanCauter.pdf"]] },
+  { datum:"1 januari 2023", naam:"Johanna Smet",
+    tekst:"Johanna Smet, mama van Rita Van Moorter en Jos Rolies, overleed op 1 januari 2023. De begrafenis vond plaats in de parochiekerk Sint-Martinus van Erpe op zaterdag 7 januari om 11.30 uur.",
+    links:[["Rouwbrief","Overlijden 2023/Overlijdensbericht_JohannaSmet.pdf"]] },
+  { datum:"23 oktober 2022", naam:"Frieda Raes",
+    tekst:"Frieda Raes, heel lang lid van onze gemeenschap, overleed op zondag 23 oktober 2022. De begrafenis vond plaats in de parochiekerk Sint-Petrus en Paulus te Hansbeke op donderdag 3 november om 10.30 uur.",
+    links:[["Rouwbrief","Overlijden 2022/Overlijdensbericht_FriedaRaes.pdf"]] },
+  { datum:"11 september 2022", naam:"Margriet Miserez",
+    tekst:"Margriet Miserez overleed op zondag 11 september 2022. De begrafenis vond plaats in de Sint-Annakapel te Itterbeek op zaterdag 17 september om 10.30 uur.",
+    links:[["Rouwbrief","Overlijden 2022/Overlijdensbericht_MargrietMiserez.pdf"]] },
+  { datum:"11 juli 2022", naam:"Dik Madder",
+    tekst:"Dik Madder overleed op maandag 11 juli 2022. Jarenlang was hij werkzaam in de persdienst van de Kerk in Brussel en verzorgde de aalmoezeniersdienst van het Bracopsziekenhuis. De begrafenis vond plaats in de Finisterrae kerk op maandag 18 juli om 14 uur.",
+    links:[["Rouwbrief","Overlijden 2022/Overlijdensbericht_DikMadder.pdf"],["Bericht Jean Kockerols","Overlijden 2022/Dik Madder bericht.png"]] },
+  { datum:"juli 2022", naam:"Zuster Rita Claus",
+    tekst:"Zuster Rita Claus is overleden. De begrafenis vond plaats in de Finisterrae kerk op zaterdag 16 juli om 10.30 uur.",
+    links:[] },
+  { datum:"juni 2022", naam:"Simonne Meert",
+    tekst:"Simonne Meert, meer dan 90 jaar oud, overleed in juni 2022, rustig thuis omringd door haar kinderen. De uitvaart vond plaats op zaterdag 18 juni om 10 uur in Vlezenbeek.",
+    links:[["Bericht Herman Lodewyckx","Overlijden 2022/SimonneMeert.png"]] },
+  { datum:"24 mei 2022", naam:"Hans Fogli",
+    tekst:"Hans Fogli overleed op dinsdag 24 mei 2022. De begrafenis vond plaats in onze Goede Bijstandkerk op donderdag 2 juni om 11 uur.",
+    links:[["Foto Hans Fogli","Overlijden 2022/HansFogli.png"]] },
+  { datum:"16 november 2021", naam:"Marie-Paule De Pauw",
+    tekst:"Marie-Paule De Pauw, mama van Marc Cooremans en Sabine Maertens, oma van Tine en Wannes, overleed op dinsdag 16 november 2021. De begrafenis vond plaats in de Sint-Bartholomeus kerk te Geraardsbergen op zaterdag 20 november om 10 uur.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_MariePauleDePauw.pdf"]] },
+  { datum:"15 oktober 2021", naam:"Maria-Stella Tuerlinckx",
+    tekst:"Maria-Stella Tuerlinckx overleed op vrijdag 15 oktober 2021. De begrafenis vond plaats in onze Goede Bijstandkerk op donderdag 21 oktober om 12 uur.",
+    links:[] },
+  { datum:"7 juli 2021", naam:"Edith Asselman",
+    tekst:"Edith Asselman, mama van Sonja en Herwig, overleed op woensdag 7 juli 2021. Sterk geëngageerd in het Merchtemse verenigingsleven en de verbindende figuur van haar gezin.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_EdithAsselman.pdf"]] },
+  { datum:"6 april 2021", naam:"Omer Mommaerts",
+    tekst:"Omer Mommaerts, een groot man van hart en ziel en Cardijn-volgeling van het eerste uur, overleed op dinsdag 6 april 2021.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_OmerMommaerts.pdf"],["Bericht Johnny","Overlijden 2021/Omer Mommaerts bericht Johnny.png"]] },
+  { datum:"9 maart 2021", naam:"Helena Verlinden (zuster Marie-Hélène)",
+    tekst:"Zuster Marie-Hélène Verlinden, lid van de gemeenschap Finis Terrae en rechterhand van zuster Leontine bij de oprichting van de palliatieve zorgen in Sint Jan Brussel, overleed op dinsdag 9 maart 2021.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_HelenaVerlinden.pdf"]] },
+  { datum:"1 maart 2021", naam:"Anne Debusschere",
+    tekst:"Anne Debusschere overleed op maandag 1 maart 2021, bijna 68 jaar oud, na een lange strijd. De begrafenis vond plaats op maandag 8 maart om 11 uur in de kerk van Goede Bijstand.",
+    links:[["Bericht Johnny","Overlijden 2021/Anne Debusschere.png"]] },
+  { datum:"10 februari 2021", naam:"Leen Dhaese",
+    tekst:"Leen Dhaese overleed op woensdag 10 februari 2021.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_LeenDhaese.pdf"],["Rouwprentje","Overlijden 2021/Overlijdensbericht_LeenDhaese_bidprentje.pdf"]] },
+  { datum:"23 januari 2021", naam:"Walter Fabri",
+    tekst:"Walter Fabri overleed op zaterdagavond 23 januari 2021, kort na zijn eenentachtigste verjaardag, in Gasthuisberg Leuven. Jarenlang een trouwe zanger in ons koortje en Jezuïet.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_WalterFabri.pdf"]] },
+  { datum:"3 januari 2021", naam:"Elza Van Mulders",
+    tekst:"Elza Van Mulders, mama van Michel De Wolf en Milaine Verborgh, overleed op zondag 3 januari 2021 na een corona-uitbraak in wzc Warlandis in Jette.",
+    links:[["Rouwbrief","Overlijden 2021/Overlijdensbericht_ElzaVanMulders.pdf"]] },
+  { datum:"17 november 2020", naam:"Jean Vandenbrul",
+    tekst:"Jean Vandenbrul, heel graag gezien in onze gemeenschap, overleed op dinsdag 17 november 2020.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_JeanVandenbrul.pdf"]] },
+  { datum:"2 november 2020", naam:"Christiane Van Den Bossche",
+    tekst:"Christiane Van Den Bossche, mama van Hilde De Geeter, overleed op maandag 2 november 2020.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_ChristianeVanDenBossche.pdf"]] },
+  { datum:"23 oktober 2020", naam:"Marc Rosseel",
+    tekst:"Marc Rosseel overleed op vrijdag 23 oktober 2020.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_MarcRosseel.pdf"]] },
+  { datum:"2 mei 2020", naam:"Walter Ceuppens",
+    tekst:"Walter Ceuppens, een grote vriend van de Goede Bijstand, overleed op zaterdag 2 mei 2020.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_CeuppensWalter.pdf"]] },
+  { datum:"21 april 2020", naam:"Flor Cooremans",
+    tekst:"Flor Cooremans overleed op dinsdag 21 april 2020. Een trouwe Bijstander die de kerk innig liefhad.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_FlorCooremans.pdf"]] },
+  { datum:"15 april 2020", naam:"Albert Kestemont",
+    tekst:"Albert Kestemont overleed op woensdag 15 april 2020 na een hospitalisatie en operatie. Hij kwam samen met Fernand en Pater Gerard naar de vieringen in de Goede Bijstand.",
+    links:[["Bericht familie","Overlijden 2020/Albert Kestemont.png"]] },
+  { datum:"13 april 2020", naam:"Marijke Jacobs",
+    tekst:"Marijke Jacobs, dochter van Gusta en René, twee sterkhouders van de Goede Bijstand, overleed op maandag 13 april 2020. Ze kwam graag met haar man Guido naar de vieringen.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_MarijkeJacobs.pdf"]] },
+  { datum:"3 april 2020", naam:"Willy Verbruggen",
+    tekst:"Willy Verbruggen, broeder van de heilige Franciscus, overleed in de nacht van 3 april 2020 in het Sint-Jans ziekenhuis. Hij zou eind juni 80 worden. Een beperkte afscheidsviering vond plaats op 8 april om 11 uur in de Goede Bijstandskerk.",
+    links:[["Bericht Johnny","Overlijden 2020/Willy Verbruggen.png"]] },
+  { datum:"18 maart 2020", naam:"Peter Van Oost",
+    tekst:"Peter Van Oost, broer van Katrien, overleed op woensdag 18 maart 2020, 52 jaar oud. Wegens corona vond de begrafenis in strikte intimiteit plaats.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_PeterVanOost.pdf"]] },
+  { datum:"11 januari 2020", naam:"Jacqueline Schepens",
+    tekst:"Jacqueline Schepens overleed op zaterdag 11 januari 2020. De begrafenis vond plaats in de Goede Bijstand op vrijdag 17 januari om 12 uur.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_JacquelineSchepens.pdf"]] },
+  { datum:"20 oktober 2019", naam:"Dora Dalle",
+    tekst:"Dora Dalle overleed op zondag 20 oktober 2019. De begrafenis vond plaats in de Verrijzeniskerk te Sint-Jans-Molenbeek op zaterdag 26 oktober om 11 uur.",
+    links:[["Rouwbrief","Overlijden 2020/Overlijdensbericht_DoraDalle.pdf"]] },
+  { datum:"8 september 2017", naam:"Lena Demeester",
+    tekst:"Lena Demeester overleed op donderdag 8 september 2017 in de palliatieve eenheid van het UZ Leuven. Als lid van de gemeenschap verzorgde ze jarenlang wetenschappelijke en religieuze uitzendingen bij de VRT. De begrafenis vond plaats in onze kerk op zaterdag 16 september om 11 uur.",
+    links:[["Rouwbrief","Overlijden  2017/Overlijdensbericht_LenaDemeester.pdf"]] },
+  { datum:"13 augustus 2017", naam:"Toke Craeghs",
+    tekst:"Toke Craeghs, mama van Mathieu, overleed op zondag 13 augustus 2017 in het woonzorgcentrum \"De Maaspoorte\" in Maaseik. De begrafenis vond plaats in de Sint Catharinakerk te Maaseik op vrijdag 18 augustus om 10.30 uur.",
+    links:[["Rouwbrief","Overlijden  2017/Overlijdensbericht_TokeCraeghs.pdf"]] },
+  { datum:"9 juli 2016", naam:"Pierre-Alain Wiener",
+    tekst:"Pierre-Alain Wiener, die jarenlang het orgel bespeelde in onze kerk, overleed op zondag 9 juli 2016. De begrafenis vond plaats in onze kerk op zaterdag 16 juli om 10 uur.",
+    links:[["Rouwbrief","Overlijden 2016/Overlijdensbericht_PierreAlainWiener.pdf"]] },
+  { datum:"23 september 2014", naam:"Christ'l Cuypers",
+    tekst:"Christel werd dood aangetroffen op dinsdag 23 september 2014. De begrafenis vond plaats op maandag 6 oktober om 10.30 uur in de Bijstandskerk.",
+    links:[["Rouwbrief","Overlijden 2014/Overlijdensbericht_Christ'lCuypers.pdf"]] },
+  { datum:"25 september 2014", naam:"Jozef (Jef) Bické",
+    tekst:"Jozef (Jef) Bické overleed in de nacht van donderdag 25 september 2014 in zijn slaap in het rusthuis te Meerbeke. De begrafenis vond plaats in onze Bijstandskerk op woensdag om 11 uur.",
+    links:[["Rouwbrief","Overlijden 2014/Overlijdensbericht_JozefBické.pdf"]] },
+];
 
 // ═══════════════════════════════════════════════════════
 // PAGINA'S
@@ -597,7 +915,7 @@ const pages = {
 
   home: { title:'Home', content:() => `
     <section>
-      <img src="${EXT}" alt="Kerk van Goede Bijstand" class="church-photo" style="height:260px;">
+      <img src="${IMG.ext}" alt="Kerk van Goede Bijstand" class="church-photo" style="height:260px;">
       <p class="photo-caption">De barokke gevel van de Kerk van Goede Bijstand aan de Kolenmarkt &#169; Johan Bakker / CC Wikimedia</p>
       <h2>Agenda &mdash; Vieringen &amp; Activiteiten</h2>
       <p style="font-style:italic;color:var(--muted);margin-bottom:0.6rem;">Overzicht van de komende 5 weken. Enkel dagen met een viering of activiteit worden getoond.</p>
@@ -643,7 +961,7 @@ const pages = {
 
   bijstand: { title:'De Goede Bijstand', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> De Goede Bijstand</div>
+      ${breadcrumb(['Home','home'], 'De Goede Bijstand')}
       <div class="subnav">
         <a onclick="showSub('welkom')"        data-sub="welkom"        class="subnav-active">Welkom</a>
         <a onclick="showSub('krachtlijnen')"  data-sub="krachtlijnen">Krachtlijnen</a>
@@ -657,8 +975,8 @@ const pages = {
       <div id="sub-welkom" class="subpage">
         <h2>Welkom</h2>
         <div class="photo-grid">
-          <div><img src="${EXT}" alt="Exterieur kerk" style="width:100%;height:200px;object-fit:cover;border-radius:4px;border:3px solid var(--pale-blue);"><p class="photo-caption">Gevel Kolenmarkt &#169; Johan Bakker / CC Wikimedia</p></div>
-          <div><img src="${INT}" alt="Interieur kerk" style="width:100%;height:200px;object-fit:cover;border-radius:4px;border:3px solid var(--pale-blue);"><p class="photo-caption">Interieur &#169; Jean-Paul Remy / visit.brussels</p></div>
+          <div><img src="${IMG.ext}" alt="Exterieur kerk" style="width:100%;height:200px;object-fit:cover;border-radius:4px;border:3px solid var(--pale-blue);"><p class="photo-caption">Gevel Kolenmarkt &#169; Johan Bakker / CC Wikimedia</p></div>
+          <div><img src="${IMG.int}" alt="Interieur kerk" style="width:100%;height:200px;object-fit:cover;border-radius:4px;border:3px solid var(--pale-blue);"><p class="photo-caption">Interieur &#169; Jean-Paul Remy / visit.brussels</p></div>
         </div>
         <p>Welkom op de website van de gemeenschap De Goede Bijstand, een Nederlandstalige parochie in het hartje van Brussel.</p>
         <p>Misschien bent u benieuwd naar wie we zijn en wat we doen. Misschien wilt u ons een vraag stellen. Misschien bent u op zoek naar een tekst uit de viering. Misschien bent u gewoon op zoek &hellip;</p>
@@ -674,7 +992,7 @@ const pages = {
       </div>
       <div id="sub-gemeenschap" class="subpage" style="display:none;">
         <h2>Onze gemeenschap</h2>
-        <img src="${INT}" alt="Interieur kerk" class="church-photo" style="height:220px;">
+        <img src="${IMG.int}" alt="Interieur kerk" class="church-photo" style="height:220px;">
         <p class="photo-caption">&#169; Jean-Paul Remy / visit.brussels</p>
         <p>Iedereen is welkom. Onze deuren staan open. Het wel en wee van het leven en de stad mag bij ons binnenstromen.</p>
         <p>Centraal staan de vele ontmoetingen in evenveel vormen. Op zondag treffen we elkaar in de viering die begint in de kerk en eindigt bij een aperitiefje in De Schelp (parochiezaaltje). Hier groeien initiatieven en worden afspraken beklonken.</p>
@@ -716,7 +1034,7 @@ const pages = {
 
   vieringen: { title:'Vieringen', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Vieringen</div>
+      ${breadcrumb(['Home','home'], 'Vieringen')}
       <h2>Vieringen</h2>
       <div class="subnav">
         <a onclick="showVierSub('overzicht')" data-vsub="overzicht" class="subnav-active">Overzicht</a>
@@ -725,7 +1043,7 @@ const pages = {
         <a onclick="showVierSub('fotos')"     data-vsub="fotos">&#128247; Foto's</a>
       </div>
       <div id="vsub-overzicht" class="vsub">
-        <img src="${INT}" alt="Interieur kerk" class="church-photo" style="height:200px;">
+        <img src="${IMG.int}" alt="Interieur kerk" class="church-photo" style="height:200px;">
         <p class="photo-caption">Het interieur van de Kerk van Goede Bijstand &#169; Jean-Paul Remy / visit.brussels</p>
         <h3>Vaste vieringen</h3>
         <table class="viering-table">
@@ -740,117 +1058,123 @@ const pages = {
       <div id="vsub-homilies" class="vsub" style="display:none;">
         <p style="font-style:italic;color:var(--muted);margin-bottom:1rem;">Homilies van vieringen in de Kerk van Goede Bijstand.</p>
         <ul class="archief-lijst">
-         <li><a href="Homilies/Homilies_2010-2025/Homilie Kerstmis_moet ik zwijgen.pdf" target="_blank">Kerstmis: moet ik zwijgen?</a> <span class="al-datum">25 december 2025</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 22 april 2022.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">24 april 2022</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 16 januari 2022.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">16 januari 2022</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Mijmeringen bij de Afrikadag 2 januari 2022.pdf" target="_blank">Mijmeringen bij de Afrikadag</a> <span class="al-datum">2 januari 2022</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Paaswake 13 april 2020.pdf" target="_blank">Paaswake</a> <span class="al-datum">13 april 2020</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Goedele MiseurHomilie viering, 20 oktober 2019.pdf" target="_blank">Homilie viering</a> <span class="al-datum">20 oktober 2019</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie viering, 17 december 2017.pdf" target="_blank">Homilie viering</a> <span class="al-datum">17 december 2017</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie viering, 1e adventszondag B, 3 december 2017.pdf" target="_blank">Homilie viering, 1e adventszondag B</a> <span class="al-datum">3 december 2017</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 18 december 2016.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">18 december 2016</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie viering 9 november 2014.pdf" target="_blank">Homilie viering</a> <span class="al-datum">9 november 2014</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie Paus Franciscus 19 maart 2013.pdf" target="_blank">Homilie Paus Franciscus</a> <span class="al-datum">19 maart 2013</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 12 februari 2012.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">12 februari 2012</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/2e Zondag door het jaar.pdf" target="_blank">2e Zondag door het jaar</a></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie Kerstmis 25 december 2011.pdf" target="_blank">Homilie Kerstmis</a> <span class="al-datum">25 december 2011</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 18 december 2011.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">18 december 2011</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Over weinig waart ge trouw, over veel zal ik u aanstellen.pdf" target="_blank">Over weinig waart ge trouw, over veel zal ik u aanstellen</a></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 11 september 2011.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">11 september 2011</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Zie het Lam Gods_2e zondag A.png" target="_blank">Zie het Lam Gods</a> <span class="al-datum">2e zondag A</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 10 oktober 2010.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">10 oktober 2010</span></li>
-          <li><a href="Homilies/Homilies_2010-2025/Homilie tv-mis 18 juli 2010.pdf" target="_blank">Homilie tv-mis</a> <span class="al-datum">18 juli 2010</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Bruiloft te Cana_2e zondag C.png" target="_blank">Bruiloft te Cana</a> <span class="al-datum">2e zondag C</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Zijn er nog profeten_14e zondag B.png" target="_blank">Zijn er nog profeten?</a> <span class="al-datum">14e zondag B</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Filippus en de Ethiopische eunuch_5e zondag van Pasen B.png" target="_blank">Filippus en de Ethiopische eunuch</a> <span class="al-datum">5e zondag van Pasen B</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Wie zeggen de mensen dat ik ben_21e zondag A.pdf" target="_blank">Wie zeggen de mensen dat ik ben?</a> <span class="al-datum">21e zondag A</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Een duobaan Petrus en Paulus_Feest van Petrus en Paulus jaar A.png" target="_blank">Een duobaan: Petrus en Paulus</a></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/De goede herder_4e Paaszondag A.png" target="_blank">De goede herder</a> <span class="al-datum">4e Paaszondag A</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Lazarus_5e zondag van de vasten A.png" target="_blank">Lazarus</a> <span class="al-datum">5e zondag van de vasten A</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Een droom van gerechtigheid_4e Adventszondag A.pdf" target="_blank">Een droom van gerechtigheid</a> <span class="al-datum">4e adventszondag A</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Johannes, de profeet_3e Adventszondag A.png" target="_blank">Johannes, de profeet</a> <span class="al-datum">3e adventszondag A</span></li>
-          <li><a href="Homilies/Homilies_KerkelijkJaar/Een visioen van Jesaja_2e Adventszondag A.png" target="_blank">Een visioen van Jesaja</a> <span class="al-datum">2e adventszondag A</span></li>
+          ${[
+            ["Homilies/Homilies_2010-2025/Homilie Kerstmis_ moet ik zwijgen.pdf","Kerstmis: moet ik zwijgen?","25 december 2025"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 22 april 2022.pdf","Homilie tv-mis","24 april 2022"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 16 januari 2022.pdf","Homilie tv-mis","16 januari 2022"],
+            ["Homilies/Homilies_2010-2025/Mijmeringen bij de Afrikadag 2 januari 2022.pdf","Mijmeringen bij de Afrikadag","2 januari 2022"],
+            ["Homilies/Homilies_2010-2025/Paaswake 13 april 2020.pdf","Paaswake","13 april 2020"],
+            ["Homilies/Homilies_2010-2025/Goedele MiseurHomilie viering, 20 oktober 2019.pdf","Homilie viering","20 oktober 2019"],
+            ["Homilies/Homilies_2010-2025/Homilie viering, 17 december 2017.pdf","Homilie viering","17 december 2017"],
+            ["Homilies/Homilies_2010-2025/Homilie viering, 1e adventszondag B, 3 december 2017.pdf","Homilie viering, 1e adventszondag B","3 december 2017"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 18 december 2016.pdf","Homilie tv-mis","18 december 2016"],
+            ["Homilies/Homilies_2010-2025/Homilie viering 9 november 2014.pdf","Homilie viering","9 november 2014"],
+            ["Homilies/Homilies_2010-2025/Homilie Paus Franciscus 19 maart 2013.pdf","Homilie Paus Franciscus","19 maart 2013"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 12 februari 2012.pdf","Homilie tv-mis","12 februari 2012"],
+            ["Homilies/Homilies_2010-2025/2e Zondag door het jaar.pdf","2e Zondag door het jaar",""],
+            ["Homilies/Homilies_2010-2025/Homilie Kerstmis 25 december 2011.pdf","Homilie Kerstmis","25 december 2011"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 18 december 2011.pdf","Homilie tv-mis","18 december 2011"],
+            ["Homilies/Homilies_2010-2025/Over weinig waart ge trouw, over veel zal ik u aanstellen.pdf","Over weinig waart ge trouw, over veel zal ik u aanstellen",""],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 11 september 2011.pdf","Homilie tv-mis","11 september 2011"],
+            ["Homilies/Homilies_KerkelijkJaar/Zie het Lam Gods_2e zondag A.png","Zie het Lam Gods","2e zondag A"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 10 oktober 2010.pdf","Homilie tv-mis","10 oktober 2010"],
+            ["Homilies/Homilies_2010-2025/Homilie tv-mis 18 juli 2010.pdf","Homilie tv-mis","18 juli 2010"],
+            ["Homilies/Homilies_KerkelijkJaar/Bruiloft te Cana_2e zondag C.png","Bruiloft te Cana","2e zondag C"],
+            ["Homilies/Homilies_KerkelijkJaar/Zijn er nog profeten_14e zondag B.png","Zijn er nog profeten?","14e zondag B"],
+            ["Homilies/Homilies_KerkelijkJaar/Filippus en de Ethiopische eunuch_5e zondag van Pasen B.png","Filippus en de Ethiopische eunuch","5e zondag van Pasen B"],
+            ["Homilies/Homilies_KerkelijkJaar/Wie zeggen de mensen dat ik ben_21e zondag A.pdf","Wie zeggen de mensen dat ik ben?","21e zondag A"],
+            ["Homilies/Homilies_KerkelijkJaar/Een duobaan Petrus en Paulus_Feest van Petrus en Paulus jaar A.png","Een duobaan: Petrus en Paulus",""],
+            ["Homilies/Homilies_KerkelijkJaar/De goede herder_4e Paaszondag A.png","De goede herder","4e Paaszondag A"],
+            ["Homilies/Homilies_KerkelijkJaar/Lazarus_5e zondag van de vasten A.png","Lazarus","5e zondag van de vasten A"],
+            ["Homilies/Homilies_KerkelijkJaar/Een droom van gerechtigheid_4e Adventszondag A.pdf","Een droom van gerechtigheid","4e adventszondag A"],
+            ["Homilies/Homilies_KerkelijkJaar/Johannes, de profeet_3e Adventszondag A.png","Johannes, de profeet","3e adventszondag A"],
+            ["Homilies/Homilies_KerkelijkJaar/Een visioen van Jesaja_2e Adventszondag A.png","Een visioen van Jesaja","2e adventszondag A"],
+          ].map(([href, label, datum]) => archiefItem(href, label, datum)).join('')}
         </ul>
       </div>
       <div id="vsub-bezinning" class="vsub" style="display:none;">
         <p style="font-style:italic;color:var(--muted);margin-bottom:1rem;">Bezinningsteksten, getuigenissen en spirituele reflecties.</p>
         <ul class="archief-lijst">
-         <li><a href="Bezinningsteksten_2023-2025/Koud Gepakt Warm Gedragen.pdf" target="_blank">Koud Gepakt, Warm Gedragen</a> <span class="al-datum">21 september 2025</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/DagRita.png" target="_blank">Dag Rita</a> <span class="al-datum">31 augustus 2025</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/Mindfulness.png" target="_blank">Mindfulness in een christelijke sfeer</a> <span class="al-datum">21 mei 2024</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/Pinksterwake.png" target="_blank">Pinksterwake: de Geest zendt de Paulusgemeenschappen</a> <span class="al-datum">18 mei 2024</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/BiddenIsMijNietGegeven.png" target="_blank">Bidden is mij niet gegeven</a> <span class="al-datum">7 oktober 2023</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/Godvergeten.png" target="_blank">Godvergeten: de Vlaamse bisschoppen willen samen nieuwe stappen zetten</a> <span class="al-datum">29 september 2023</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/PausCelibaat.png" target="_blank">Paus in interview: Celibaat is herzienbaar</a> <span class="al-datum">22 april 2023</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/Paasmorgen.png" target="_blank">Paasmorgen</a> <span class="al-datum">15 april 2023</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/Zorgpastor Goedele getuigt 'De eerste 5 minuten zijn cruciaa.pdf" target="_blank">Zorgpastor Goedele getuigt: &lsquo;De eerste 5 minuten zijn cruciaal&rsquo;</a> <span class="al-datum">25 maart 2023</span></li>
-          <li><a href="Bezinningsteksten_2023-2025/sebastien_bellin_artikel.pdf" target="_blank">Ex-basketballer S&eacute;bastien Bellin: &lsquo;Ik vergeef jullie&rsquo;</a> <span class="al-datum">11 maart 2023</span></li>
-          <li><a href="Bezinningsteksten_2022/Pannenkoek.png" target="_blank">Een pannenkoek aan de abdij!</a> <span class="al-datum">5 oktober 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/Pinksteren2022.png" target="_blank">Pinksteren</a> <span class="al-datum">28 mei 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/mariabloemen_tuin.pdf" target="_blank">Acht bloemen die naar Maria verwijzen voor in jouw tuin</a> <span class="al-datum">7 mei 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/HoopOmhelzen.png" target="_blank">Hoop Omhelzen</a> <span class="al-datum">30 april 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/Woedend.png" target="_blank">Woedend</a> <span class="al-datum">23 april 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/breken_en_leven_pasen_2022.pdf/" target="_blank">In Het Licht Van Gods Woord</a> <span class="al-datum">17 april 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/Pasen2022.png" target="_blank">Van Woestijn naar Pasen</a> <span class="al-datum">9 april 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/de_verloren_dochter.png" target="_blank">De Verloren Dochter</a> <span class="al-datum">2 april 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/februari2022.png" target="_blank">Februari</a> <span class="al-datum">12 februari 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/lichtmis_5_februari_2022.pdf" target="_blank">Lichtmis</a> <span class="al-datum">5 februari 2022</span></li>
-          <li><a href="Bezinningsteksten_2022/Driekoningen 10 vragen & antwoorden 2 januari 2022.pdf" target="_blank">Driekoningen: 10 vragen &amp; antwoorden</a> <span class="al-datum">2 januari 2022</span></li>
-          <li><a href="Beziningsteksten_2020/zachtheid.png" target="_blank">Zachtheid heet ons kind&hellip;</a> <span class="al-datum">19 december 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Hommage straatdode_ Christophe 27 november 2020.pdf" target="_blank">Hommage straatdode: Christophe</a> <span class="al-datum">27 november 2020</span></li>
-          <li><a href="Beziningsteksten_2020/In mijn diepste binnenste.png" target="_blank">In mijn diepste binnenste</a> <span class="al-datum">21 mei 2020</span></li>
-          <li><a href="Beziningsteksten_2020/verbanddoos.png" target="_blank">Verbanddoos</a> <span class="al-datum">20 mei 2020</span></li>
-          <li><a href="Beziningsteksten_2020/weet je dat nog.png" target="_blank">Weet je dat nog&hellip;</a> <span class="al-datum">15 mei 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Heilige Corona 14 mei 2020.pdf" target="_blank">Heilige Corona</a> <span class="al-datum">14 mei 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Gaandeweg gingen hun ogen open.png" target="_blank">Gaandeweg gingen hun ogen open</a> <span class="al-datum">26 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/storm op het meer.png" target="_blank">Storm op het meer</a> <span class="al-datum">25 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Wie kan voor ons de steen van het graf wegrollen.pdf" target="_blank">Wie kan voor ons de steen van het graf wegrollen?</a> <span class="al-datum">15 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/door god gegrepen.png" target="_blank">Door God gegrepen &mdash; De stilte van Pasen</a> <span class="al-datum">12 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/machteloosheid.png" target="_blank">Staande blijven in machteloosheid</a> <span class="al-datum">10 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/le point noir.png" target="_blank">Le point noir</a> <span class="al-datum">6 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Troostwoord voor de pandemie 4 april 2020.pdf" target="_blank">Troostwoord voor de pandemie</a> <span class="al-datum">4 april 2020</span></li>
-          <li><a href="Beziningsteksten_2020/troost.png" target="_blank">Gebeden om troost</a> <span class="al-datum">27 maart 2020</span></li>
-          <li><a href="Beziningsteksten_2020/goede bijstandskerk brussel.png" target="_blank">Goede Bijstandskerk Brussel</a> <span class="al-datum">25 maart 2020</span></li>
-          <li><a href="Beziningsteksten_2020/lockdown.png" target="_blank">Lockdown</a> <span class="al-datum">22 maart 2020</span></li>
-          <li><a href="Beziningsteksten_2020/Maar de lente wist het niet 20 maart 2020.pdf" target="_blank">Maar de lente wist het niet</a> <span class="al-datum">20 maart 2020</span></li>
-          <li><a href="Bezinningsteksten_pre2020/allerheiligen2019.png" target="_blank">Allerheiligen</a> <span class="al-datum">1 november 2019</span></li>
-          <li><a href="Bezinningsteksten_pre2020/klok.png" target="_blank">De gebarsten klok</a> <span class="al-datum">8 februari 2018</span></li>
-          <li><a href="Bezinningsteksten_pre2020/kerkwijding.png" target="_blank">Eerste lezing: Kerkwijding</a> <span class="al-datum">27 juli 2014</span></li>
-          <li><a href="Bezinningsteksten_pre2020/Bezinning_woorddienst.pdf" target="_blank">Bezinning bij de Woorddienst</a> <span class="al-datum">9 december 2012</span></li>
-          <li><a href="Bezinningsteksten_pre2020/marcello_barros.png" target="_blank">Marcelo Barros was in Belgi&euml;</a></li>
-          <li><a href="Bezinningsteksten_pre2020/Getuigenis_françoise.pdf" target="_blank">Getuigenis van Fran&ccedil;oise</a></li>
-          <li><a href="Bezinningsteksten_pre2020/lente.png" target="_blank">Als de lente uitblijft</a></li>
-          <li><a href="Bezinningsteksten_pre2020/een_ander_profiel.png" target="_blank">Een ander profiel</a></li>
-          <li><a href="Bezinningsteksten_pre2020/bezinning.png" target="_blank">Bezinning</a></li>
-          <li><a href="Bezinningsteksten_pre2020/alle_heiligen.png" target="_blank">Alle Heiligen</a></li>
-          <li><a href="Bezinningsteksten_pre2020/ziekten.png" target="_blank">Zijn er rechtvaardige ziekten?</a></li>
-          <li><a href="Bezinningsteksten_pre2020/roeping.png" target="_blank">Trouw aan onze roeping</a></li>
-          <li><a href="Bezinningsteksten_pre2020/de_mens_weent.pdf" target="_blank">L&rsquo;homme qui pleure&hellip; De mens weent&hellip;</a></li>
-          <li><a href="Bezinningsteksten_pre2020/40jaarGB.pdf" target="_blank">40 jaar Vlaamse pastoraal</a></li>
-          <li><a href="Bezinningsteksten_pre2020/overmolen.png" target="_blank">Christelijke spiritualiteit en universele solidariteit</a></li>
-          <li><a href="Bezinningsteksten_pre2020/Geboorte - zeven impressies.pdf" target="_blank">Geboorte &mdash; zeven impressies</a></li>
-          <li><a href="Bezinningsteksten_pre2020/jongeren.png" target="_blank">Jongeren leren van wat men hun voorleeft</a></li>
-          <li><a href="Bezinningsteksten_pre2020/zonnelied.png" target="_blank">Het zonnelied van Franciscus</a></li>
-          <li><a href="Bezinningsteksten_pre2020/verdriet.png" target="_blank">Pleidooi voor &lsquo;Verdriet&rsquo;</a></li>
-          <li><a href="Bezinningsteksten_pre2020/schilderijtje.png" target="_blank">Leef je leven als een schilderijtje</a></li>
+          ${[
+            ["Bezinningsteksten_2023-2025/Koud Gepakt Warm Gedragen.pdf","Koud Gepakt, Warm Gedragen","21 september 2025"],
+            ["Bezinningsteksten_2023-2025/DagRita.png","Dag Rita","31 augustus 2025"],
+            ["Bezinningsteksten_2023-2025/Mindfulness.png","Mindfulness in een christelijke sfeer","21 mei 2024"],
+            ["Bezinningsteksten_2023-2025/Pinksterwake.png","Pinksterwake: de Geest zendt de Paulusgemeenschappen","18 mei 2024"],
+            ["Bezinningsteksten_2023-2025/BiddenIsMijNietGegeven.png","Bidden is mij niet gegeven","7 oktober 2023"],
+            ["Bezinningsteksten_2023-2025/Godvergeten.png","Godvergeten: de Vlaamse bisschoppen willen samen nieuwe stappen zetten","29 september 2023"],
+            ["Bezinningsteksten_2023-2025/PausCelibaat.png","Paus in interview: Celibaat is herzienbaar","22 april 2023"],
+            ["Bezinningsteksten_2023-2025/Paasmorgen.png","Paasmorgen","15 april 2023"],
+            ["Bezinningsteksten_2023-2025/Zorgpastor Goedele getuigt 'De eerste 5 minuten zijn cruciaa.pdf","Zorgpastor Goedele getuigt: 'De eerste 5 minuten zijn cruciaal'","25 maart 2023"],
+            ["Bezinningsteksten_2023-2025/sebastien_bellin_artikel.pdf","Ex-basketballer Sébastien Bellin: 'Ik vergeef jullie'","11 maart 2023"],
+            ["Bezinningsteksten_2022/Pannenkoek.png","Een pannenkoek aan de abdij!","5 oktober 2022"],
+            ["Bezinningsteksten_2022/Pinksteren2022.png","Pinksteren","28 mei 2022"],
+            ["Bezinningsteksten_2022/mariabloemen_tuin.pdf","Acht bloemen die naar Maria verwijzen voor in jouw tuin","7 mei 2022"],
+            ["Bezinningsteksten_2022/HoopOmhelzen.png","Hoop Omhelzen","30 april 2022"],
+            ["Bezinningsteksten_2022/Woedend.png","Woedend","23 april 2022"],
+            ["Bezinningsteksten_2022/breken_en_leven_pasen_2022.pdf/","In Het Licht Van Gods Woord","17 april 2022"],
+            ["Bezinningsteksten_2022/Pasen2022.png","Van Woestijn naar Pasen","9 april 2022"],
+            ["Bezinningsteksten_2022/de_verloren_dochter.png","De Verloren Dochter","2 april 2022"],
+            ["Bezinningsteksten_2022/februari2022.png","Februari","12 februari 2022"],
+            ["Bezinningsteksten_2022/lichtmis_5_februari_2022.pdf","Lichtmis","5 februari 2022"],
+            ["Bezinningsteksten_2022/Driekoningen 10 vragen & antwoorden 2 januari 2022.pdf","Driekoningen: 10 vragen & antwoorden","2 januari 2022"],
+            ["Beziningsteksten_2020/zachtheid.png","Zachtheid heet ons kind…","19 december 2020"],
+            ["Beziningsteksten_2020/Hommage straatdode_ Christophe 27 november 2020.pdf","Hommage straatdode: Christophe","27 november 2020"],
+            ["Beziningsteksten_2020/In mijn diepste binnenste.png","In mijn diepste binnenste","21 mei 2020"],
+            ["Beziningsteksten_2020/verbanddoos.png","Verbanddoos","20 mei 2020"],
+            ["Beziningsteksten_2020/weet je dat nog.png","Weet je dat nog…","15 mei 2020"],
+            ["Beziningsteksten_2020/Heilige Corona 14 mei 2020.pdf","Heilige Corona","14 mei 2020"],
+            ["Beziningsteksten_2020/Gaandeweg gingen hun ogen open.png","Gaandeweg gingen hun ogen open","26 april 2020"],
+            ["Beziningsteksten_2020/storm op het meer.png","Storm op het meer","25 april 2020"],
+            ["Beziningsteksten_2020/Wie kan voor ons de steen van het graf wegrollen.pdf","Wie kan voor ons de steen van het graf wegrollen?","15 april 2020"],
+            ["Beziningsteksten_2020/door god gegrepen.png","Door God gegrepen — De stilte van Pasen","12 april 2020"],
+            ["Beziningsteksten_2020/machteloosheid.png","Staande blijven in machteloosheid","10 april 2020"],
+            ["Beziningsteksten_2020/le point noir.png","Le point noir","6 april 2020"],
+            ["Beziningsteksten_2020/Troostwoord voor de pandemie 4 april 2020.pdf","Troostwoord voor de pandemie","4 april 2020"],
+            ["Beziningsteksten_2020/troost.png","Gebeden om troost","27 maart 2020"],
+            ["Beziningsteksten_2020/goede bijstandskerk brussel.png","Goede Bijstandskerk Brussel","25 maart 2020"],
+            ["Beziningsteksten_2020/lockdown.png","Lockdown","22 maart 2020"],
+            ["Beziningsteksten_2020/Maar de lente wist het niet 20 maart 2020.pdf","Maar de lente wist het niet","20 maart 2020"],
+            ["Bezinningsteksten_pre2020/allerheiligen2019.png","Allerheiligen","1 november 2019"],
+            ["Bezinningsteksten_pre2020/klok.png","De gebarsten klok","8 februari 2018"],
+            ["Bezinningsteksten_pre2020/kerkwijding.png","Eerste lezing: Kerkwijding","27 juli 2014"],
+            ["Bezinningsteksten_pre2020/Bezinning_woorddienst.pdf","Bezinning bij de Woorddienst","9 december 2012"],
+            ["Bezinningsteksten_pre2020/marcello_barros.png","Marcelo Barros was in België",""],
+            ["Bezinningsteksten_pre2020/Getuigenis_françoise.pdf","Getuigenis van Françoise",""],
+            ["Bezinningsteksten_pre2020/lente.png","Als de lente uitblijft",""],
+            ["Bezinningsteksten_pre2020/een_ander_profiel.png","Een ander profiel",""],
+            ["Bezinningsteksten_pre2020/bezinning.png","Bezinning",""],
+            ["Bezinningsteksten_pre2020/alle_heiligen.png","Alle Heiligen",""],
+            ["Bezinningsteksten_pre2020/ziekten.png","Zijn er rechtvaardige ziekten?",""],
+            ["Bezinningsteksten_pre2020/roeping.png","Trouw aan onze roeping",""],
+            ["Bezinningsteksten_pre2020/de_mens_weent.pdf","L'homme qui pleure… De mens weent…",""],
+            ["Bezinningsteksten_pre2020/40jaarGB.pdf","40 jaar Vlaamse pastoraal",""],
+            ["Bezinningsteksten_pre2020/overmolen.png","Christelijke spiritualiteit en universele solidariteit",""],
+            ["Bezinningsteksten_pre2020/Geboorte - zeven impressies.pdf","Geboorte — zeven impressies",""],
+            ["Bezinningsteksten_pre2020/jongeren.png","Jongeren leren van wat men hun voorleeft",""],
+            ["Bezinningsteksten_pre2020/zonnelied.png","Het zonnelied van Franciscus",""],
+            ["Bezinningsteksten_pre2020/verdriet.png","Pleidooi voor 'Verdriet'",""],
+            ["Bezinningsteksten_pre2020/schilderijtje.png","Leef je leven als een schilderijtje",""],
+          ].map(([href, label, datum]) => archiefItem(href, label, datum)).join('')}
         </ul>
       </div>
       <div id="vsub-fotos" class="vsub" style="display:none;">
         <ul class="archief-lijst">
-         <li><a href="Vieringen en liturgie/Allerzielen_2024/2.png" target="_blank">Viering Allerzielen</a> <span class="al-datum">2 november 2024</span></li>
-          <li><a href="Vieringen en liturgie/GB_Foto_mis.png" target="_blank">Gedachtenisviering</a> <span class="al-datum">15 oktober 2023</span></li>
-          <li><a href="Vieringen en liturgie/Doop Line en Olivia-20 november 2022.png" target="_blank">Doop Line en Olivia</a> <span class="al-datum">20 november 2022</span></li>
-          <li><a href="Vieringen en liturgie/Vieringen en liturgie 1.png" target="_blank">Viering</a> <span class="al-datum">19 december 2021</span></li>
-          <li><a href="Vieringen en liturgie/doop_béatrice.png" target="_blank">Doop B&eacute;atrice</a> <span class="al-datum">18 januari 2020</span></li>
-          <li><a href="Vieringen en liturgie/lichtmis2013_1.png" target="_blank">Lichtmis</a> <span class="al-datum">3 februari 2013</span></li>
-          <li><a href="Vieringen en liturgie/GB_Foto_mis.png" target="_blank">Vieringen (archief)</a></li>
+          ${[
+            ["Vieringen en liturgie/Allerzielen_2024/2.png","Viering Allerzielen","2 november 2024"],
+            ["Vieringen en liturgie/GB_Foto_mis.png","Gedachtenisviering","15 oktober 2023"],
+            ["Vieringen en liturgie/Doop Line en Olivia-20 november 2022.png","Doop Line en Olivia","20 november 2022"],
+            ["Vieringen en liturgie/Vieringen en liturgie 1.png","Viering","19 december 2021"],
+            ["Vieringen en liturgie/doop_béatrice.png","Doop Béatrice","18 januari 2020"],
+            ["Vieringen en liturgie/lichtmis2013_1.png","Lichtmis","3 februari 2013"],
+            ["Vieringen en liturgie/GB_Foto_mis.png","Vieringen (archief)",""],
+          ].map(([href, label, datum]) => archiefItem(href, label, datum)).join('')}
         </ul>
       </div>
     </section>` },
 
   activiteiten: { title:'Activiteiten', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Activiteiten</div>
+      ${breadcrumb(['Home','home'], 'Activiteiten')}
       <h2>Activiteiten &amp; Evenementen</h2>
       <div class="act-subnav">
         <a onclick="showActSub('overzicht')" data-asub="overzicht" class="act-actief">Overzicht</a>
@@ -867,48 +1191,43 @@ const pages = {
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
         <h3>Vlaamse Meesters in Situ</h3>
         <a href="https://www.flemishmastersinsitu.com/nl/locaties/onze-lieve-vrouw-van-goede-bijstandkerk-brussel" target="_blank">
-          <img src="${ALT}" alt="Hoofdaltaar — Jan Pieter van Baurscheit de Oude"
+          <img src="${IMG.alt}" alt="Hoofdaltaar — Jan Pieter van Baurscheit de Oude"
                style="width:100%;max-height:260px;object-fit:cover;border-radius:4px;border:3px solid var(--pale-blue);box-shadow:0 4px 18px rgba(15,40,80,0.18);margin:0.8rem 0;display:block;">
         </a>
         <p style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-top:-0.5rem;margin-bottom:0.75rem;">Hoofdaltaar &mdash; Jan Pieter van Baurscheit de Oude &copy; Dominique Provost / Art in Flanders</p>
         <p>Voor wervelende barok in marmer en bladgoud moet u in onze kerk zijn. Jan Pieter van Baurscheit de Oude maakte van het hoofdaltaar een echte blikvanger. <a href="https://www.flemishmastersinsitu.com/nl/locaties/onze-lieve-vrouw-van-goede-bijstandkerk-brussel" target="_blank">Ontdek de Vlaamse Meesters in Situ &#8594;</a></p>
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
         <h3>Grondbibliotheek</h3>
-        <p>Van elke plek op aarde een stukje grond.</p>
+        <p>Van elke plek op aarde een stukje grond. <a href="https://evelienleys.github.io/grondbibliotheek/" target="_blank" rel="noopener">Bekijk de interactieve kaart &#8594;</a></p>
         <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
         <h3><a href="Vieringen en liturgie/Kerst/20251222_Kerstbrief.pdf" target="_blank" style="text-decoration:none;color:inherit;">Kerstbrief 2025 &mdash; De Kleine Zusters van Jezus &#8594;</a></h3>
         <p><a href="Vieringen en liturgie/Kerst/20251222_Kerstbrief.pdf" target="_blank">Lees de Kerstbrief (PDF) &#8594;</a></p>
       </div>
-      <div id="asub-fotos" style="display:none;">
-        ${fotoBlok('Vieringen &amp; Liturgie','Momenten van gebed, eredienst en sacramenten doorheen het kerkelijk jaar.','&#127775;')}
-        ${fotoBlok('Sociale Activiteiten','Ontmoetingen, maaltijden en samenzijn die de gemeenschap verbinden.','&#129309;')}
-        ${fotoBlok('Kinderen &amp; Jongeren','Catechese, spelactiviteiten en jeugdvieringen voor de jongste parochianen.','&#11088;')}
-        ${fotoBlok('Culturele Evenementen','Concerten, tentoonstellingen en culturele initiatieven in en rond de kerk.','&#127925;')}
-      </div>
+      <div id="asub-fotos" style="display:none;"></div>
     </section>` },
 
   kinderen: { title:'Kinderen & Jongeren', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Kinderen &amp; Jongeren</div>
+      ${breadcrumb(['Home','home'], 'Kinderen &amp; Jongeren')}
       <h2>Kinderen &amp; Jongeren</h2>
       <p>Elke derde zondag van de maand is er kindernevendienst tijdens de viering van 11 uur.</p>
       <div class="kids-grid">
         <div class="kids-card" onclick="navigate('bijtjes')"><div class="icon">&#x1F41D;</div><h3>Goede Bijtjes</h3><p>Voor kinderen van de lagere school. Ze verkennen het geloof via verhalen, knutselen en gesprekken.</p><p><a>Meer info &#8594;</a></p></div>
         <div class="kids-card" onclick="navigate('mosterdzaadjes')"><div class="icon">&#x1F331;</div><h3>Mosterdzaadjes</h3><p>De kindernevendienst voor kinderen van de lagere school. Elke derde zondag van de maand gaan ze apart aan de slag tijdens de viering van 11&nbsp;uur.</p><p><a>Meer info &#8594;</a></p></div>
-         <div class="kids-card" onclick="navigate('vormsel')" style="grid-column:1/-1"><div class="icon">&#x271D;</div><h3>Vormsel &amp; Eerste Communie</h3><p>Wil je je kind laten vormen en zijn of haar eerste communie doen? We begeleiden je graag op weg naar dit dubbele feest &mdash; een mooie tradite van de Brusselse kerk.</p><p><a>Meer info &#8594;</a></p></div>
+        <div class="kids-card" onclick="navigate('vormsel')" style="grid-column:1/-1"><div class="icon">&#x271D;</div><h3>Vormsel &amp; Eerste Communie</h3><p>Wil je je kind laten vormen en zijn of haar eerste communie doen? We begeleiden je graag op weg naar dit dubbele feest &mdash; een mooie tradite van de Brusselse kerk.</p><p><a>Meer info &#8594;</a></p></div>
       </div>
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
       <h3>Jongeren</h3>
       <p>Via onze samenwerking met <strong>Kamino</strong> zijn er regelmatig activiteiten. <a onclick="navigate('samenwerking')">Meer over Kamino &#8594;</a></p>
     </section>` },
 
-   bijtjes: { title:'Goede Bijtjes', content:`
+  bijtjes: { title:'Goede Bijtjes', content:`
     <section>
       <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('kinderen')">Kinderen &amp; Jongeren</a> <span>&#8250;</span> Goede Bijtjes</div>
       <h2>&#x1F41D; Goede Bijtjes</h2>
       <p>Voor de kinderen van het eerste leerjaar en jonger, onze Goede Bijtjes</p>
       <h3>Wat doen we?</h3>
-      <p>Onze bijenkorf opent tijdens de misviering van 11 uur. Een knutselplek, praatplek en vooral een plek waar we vanuit de leefwereld van de kinderen nadenken over de thema's die in de zondagsviering aan bod komen. </p>
+      <p>Onze bijenkorf opent tijdens de misviering van 11 uur. Een knutselplek, praatplek en vooral een plek waar we vanuit de leefwereld van de kinderen nadenken over de thema's die in de zondagsviering aan bod komen.</p>
       <h3>Wanneer?</h3>
       <p>Elke <strong>derde zondag van de maand</strong> tijdens de viering van 11&nbsp;uur in de Kerk van Goede Bijstand.</p>
       <p><a onclick="navigate('contact')">Neem contact op voor meer info &#8594;</a></p>
@@ -920,8 +1239,8 @@ const pages = {
       <h2>&#x1F331; Mosterdzaadjes</h2>
       <p>De kinderen van het 1e, 2e en 3e leerjaar (en eventueel 4e leerjaar) zijn welkom bij de Mosterdzaadjes. Onze catechisten Magda, Petra en Johnny bieden een aantrekkelijk en eigentijds programma aan.</p>
       <h3>Wat doen we?</h3>
-      <p>Een jaar lang leren de Mosterdzaadjes over delen, gevoelens uiten, de waarde van een goede vriend en andere lessen die Jezus en de geluksvogels ons leren. Dit is niet zo gemakkelijk, maar met zijn allen gaan we op weg, stapje voor stapje, samen op ontdekking. En zo gaan we samen, maand na maand, met de kinderen op weg naar onze 'Drempelviering'.
-      Het traject van de Mosterdzaadjes eindigt met een feestelijk 'Drempelviering' tijdens een zondagsviering in mei. Deze Drempelviering is een opstap naar de vormsel- en communiecatechese. Kinderen die nog niet aan de vormselcatechese toe zijn, blijven nog één, twee of drie jaartjes langer bij de Mosterdzaadjes. Ze mogen elk jaar meedoen met de Drempelviering als afsluiting van hun catechesejaar.</p>
+      <p>Een jaar lang leren de Mosterdzaadjes over delen, gevoelens uiten, de waarde van een goede vriend en andere lessen die Jezus en de geluksvogels ons leren. Dit is niet zo gemakkelijk, maar met zijn allen gaan we op weg, stapje voor stapje, samen op ontdekking. En zo gaan we samen, maand na maand, met de kinderen op weg naar onze 'Drempelviering'.</p>
+      <p>Het traject van de Mosterdzaadjes eindigt met een feestelijk 'Drempelviering' tijdens een zondagsviering in mei. Deze Drempelviering is een opstap naar de vormsel- en communiecatechese. Kinderen die nog niet aan de vormselcatechese toe zijn, blijven nog één, twee of drie jaartjes langer bij de Mosterdzaadjes. Ze mogen elk jaar meedoen met de Drempelviering als afsluiting van hun catechesejaar.</p>
       <h3>Wanneer?</h3>
       <p>Elke <strong>derde zondag van de maand</strong> tijdens de viering van 11&nbsp;uur.</p>
       <p><a onclick="navigate('contact')">Neem contact op voor meer info &#8594;</a></p>
@@ -937,9 +1256,7 @@ const pages = {
       <p>Anders dan elders in Belgi&#235;, vieren we in Brussel het <strong>vormsel en de eerste communie samen</strong>. Hiermee grijpen we terug naar een heel oude traditie binnen de christelijke Kerk, waarbij gedoopten eerst het vormsel ontvingen &mdash; als bevestiging van het doopsel &mdash; en pas daarna uitgenodigd werden om deel te nemen aan de eucharistie en dus hun eerste communie te doen.</p>
       <h3>Leeftijd en traject</h3>
       <p>Kinderen <strong>vanaf 8 jaar</strong> kunnen zich op dit dubbele feest beginnen voorbereiden. Die voorbereiding verschilt van kerk tot kerk en duurt meestal 2 of 3 jaar. Je kind zal dus gevormd worden en voor het eerst te communie gaan <strong>ten vroegste op de leeftijd van 10 jaar</strong>.</p>
-      <div class="partner-item" style="margin-top:1.2rem;">
-        <strong>2-jarig traject &mdash; start in het vierde leerjaar</strong>
-      </div>
+      <div class="partner-item" style="margin-top:1.2rem;"><strong>2-jarig traject &mdash; start in het vierde leerjaar</strong></div>
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
       <h3>Contact</h3>
       <p>Voor meer informatie en inschrijving, neem contact op met:<br>
@@ -949,7 +1266,7 @@ const pages = {
 
   schelp: { title:'De Schelp', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> De Schelp</div>
+      ${breadcrumb(['Home','home'], 'De Schelp')}
       <h2>De Schelp</h2>
       <p>De parochiezaal De Schelp is een rolstoeltoegankelijke ontmoetings- en vergaderruimte. Vanuit een christelijke levenshouding komt de gemeenschap van O.-L.-V. van Goede Bijstand op voor de gelijkheid van kansen op diverse terreinen. In De Schelp wil zij ruimte bieden aan organisaties die dit doel nastreven.</p>
       <h3>Aanvragen</h3>
@@ -961,7 +1278,7 @@ const pages = {
 
   samenwerking: { title:'Samenwerking', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Samenwerking</div>
+      ${breadcrumb(['Home','home'], 'Samenwerking')}
       <h2>Samenwerking</h2>
       <div class="partners">
         <div class="partner-item"><strong>Kamino &ndash; Jongerennetwerk</strong><p>Jongerennetwerk van de katholieke kerk in Brussel. <a href="https://www.kamino.be" target="_blank">www.kamino.be &#8594;</a></p></div>
@@ -973,363 +1290,38 @@ const pages = {
       </div>
     </section>` },
 
+  sacramenten: { title:'Sacramenten', content:() => `
+    <section>
+      ${breadcrumb(['Home','home'], 'Sacramenten')}
+      <h2>Sacramenten</h2>
+      <p>Voor alle sacramenten kunt u contact opnemen met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a>.</p>
+      <h3>Doopsel</h3>
+      <p>Het doopsel is het eerste sacrament en het begin van het christelijke leven. Wilt u uw kind laten dopen of heeft u vragen over een volwassenendoop? Neem gerust contact op met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a>.</p>
+      <h3>Biechtgesprek</h3>
+      <p>Een biechtgesprek is een persoonlijk gesprek over verzoening en innerlijke vrijheid. U kunt hiervoor een afspraak maken met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a>.</p>
+      <h3>Ziekenzalving</h3>
+      <p>De ziekenzalving is een sacrament van troost en kracht voor wie ernstig ziek is of op hoge leeftijd. Voor een bezoek aan huis of ziekenhuis kunt u contact opnemen met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a>.</p>
+      <h3>Huwelijk</h3>
+      <p>Wilt u trouwen in de Kerk van Goede Bijstand? Neem dan tijdig contact op met pastoor Johnny De Mot via <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a> om de mogelijkheden en voorbereiding te bespreken.</p>
+      <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
+      <h3>Vormsel &amp; Eerste Communie</h3>
+      <p>Voor informatie over het vormsel en de eerste communie verwijzen we naar de aparte pagina: <a onclick="navigate('vormsel')">Vormsel &amp; Eerste Communie &#8594;</a></p>
+    </section>` },
+
   overlijden: { title:'Overlijden', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Overlijden</div>
+      ${breadcrumb(['Home','home'], 'Overlijden')}
       <h2>Overlijden</h2>
-
       <h3>Begrafenissen &amp; contact</h3>
       <p>Voor het melden van een overlijden of het bespreken van een begrafenis, neem contact op met pastoor Johnny De Mot:<br>
       <a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a> &nbsp;|&nbsp; <a onclick="navigate('contact')">Contactformulier &#8594;</a></p>
-
       <div class="ornament">&#x2748; &#x2748; &#x2748;</div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 24 oktober 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Paul Huyskens</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Paul Huyskens, echtgenoot van Frank Benault, overleed op 24 oktober 2025 op 71-jarige leeftijd op de dienst palliatieve zorgen in Gasthuisberg. De begrafenis vond plaats in het crematorium van Evere op donderdag 30 oktober 2025 om 14 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_PaulHuyskens.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 19 september 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Elizabeth Nijpels</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Elizabeth Nijpels overleed op vrijdag 19 september 2025. De begrafenis vond plaats in de Sint-Jan Evangelistkerk te Tervuren op donderdag 25 september 2025 om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Nijpels-Elisabeth-rb.indd - Overlijdensbericht_ElizabethNijpels.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 12 september 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Gino Mattheeuws</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Pastor Gino Mattheeuws, lid van ons team en voorganger van Goede Bijstand en Finis Terrae, overleed op vrijdag 12 september 2025. De begrafenis vond plaats in de Sint-Jozefskerk te Evere op zaterdag 20 september 2025 om 10.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_GinoMattheeuws.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 18 augustus 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Rita Lecomte</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Rita Lecomte overleed op maandag 18 augustus 2025. De begrafenis vond plaats in de kerk van O.L.V. Boodschap Ter Muilen te Liedekerke op maandag 25 augustus 2025 om 11.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_RitaLecomte.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 15 augustus 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Pater Hugo Vangeel</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Pater Hugo Vangeel overleed op vrijdag 15 augustus 2025. De begrafenis vond plaats in de parochiekerk van Sint-Rochus te Brussel op zaterdag 23 augustus 2025 om 11 uur. Op zaterdag 30 augustus 2025 om 10.30 uur was er een dankviering in de kerk van Herk-de-Stad.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_HugoVangeel.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 14 augustus 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Jef Durant</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Jef Durant overleed op donderdag 14 augustus 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op vrijdag 22 augustus 2025 om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_JefDurant.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 12 juli 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Frida De Boeck</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Frida De Boeck overleed op zaterdag 12 juli 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op vrijdag 18 juli 2025 om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_FridaDeBoeck.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 3 juni 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Ruf Delcourt</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Ruf Delcourt overleed op dinsdag 3 juni 2025. De begrafenis vond plaats in de kerk van O.-L.-Vrouw Boodschap te Liedekerke op zaterdag 14 juni 2025 om 11.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_RufDelcourt.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 15 februari 2025</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Jozef Van Rumste</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Jozef Van Rumste overleed op zaterdag 15 februari 2025. De begrafenis vond plaats in onze kerk van Goede Bijstand op maandag 24 februari 2025 om 13 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_JozefVanRumste.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 23 oktober 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Hugo Weckx</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Hugo Weckx, echtgenoot en zielsgenoot van Frida, overleed op woensdag 23 oktober 2024. Het lichaam werd overgebracht naar onze kerk op vrijdag 25 oktober om 18 uur, met onthaalliturgie.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2024/Overlijdensbericht_HugoWeckx.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 31 juli 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Rachelle Synaeve</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Rachelle Synaeve, mama van Sabine en Marc, oma van Tine en Wannes, overleed op woensdag 31 juli 2024. De begrafenis vond plaats in onze kerk op dinsdag 6 augustus om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_RachelleSynaeve.pdf" target="_blank">Rouwbrief &#8594;</a> &nbsp;|&nbsp; <a href="Documenten/Overlijdensbericht_RachelleSynaeve_kaart.pdf" target="_blank">Rouwprentje &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 27 juli 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Mark Van Liedekerke</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Mark Van Liedekerke, echtgenoot van Eugenie Arijs, overleed op zaterdag 27 juli 2024. De begrafenis vond plaats in de parochiekerk Sint-Jan-Evangelist te Teralfene op vrijdag 2 augustus 2024 om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2024/Overlijdensbericht_RachelleSynaeve.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 12 juni 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Martine De Mot</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Martine De Mot, zus van Johnny, overleed op woensdag 12 juni 2024. De begrafenis vond plaats in de Kerk van Goede Bijstand op zaterdag 22 juni om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2024/Overlijdensbericht_MartineDeMot.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 14 mei 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Paul Dewallef</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Paul Dewallef (&#176; 25 juli 1944, Anderlecht) overleed op 14 mei 2024. Leraar Grieks-Latijn, voorganger en voorzitter van de kerkraad in de Goede Bijstand, trouw medewerker van vzw De Overmolen. Hij schonk zijn lichaam aan het UZ Brussel.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_PaulDewallef.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 9 maart 2024</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Cil Cloet</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Cil Cloet overleed op zaterdag 9 maart 2024. De begrafenis vond plaats in de Onze-Lieve-Vrouwkerk te Beigem op zaterdag 16 maart om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_CilCloet.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 15 september 2023</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Luc Vankrunkelsven</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Luc Vankrunkelsven overleed op 15 september 2023 in Brazili&#235;, tijdens een afscheidsreis naar zijn geliefde projecten aldaar. De begrafenis vond plaats in de abdijkerk van Averbode op vrijdag 6 oktober 2023 om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden 2014 - 2023/Overlijden 2023/Overlijdensbericht_LucVankrunkelsven.pdf" target="_blank">Rouwbrief &#8594;</a> &nbsp;|&nbsp; <a href="https://www.mo.be/wereldblog/luc-afscheid-van-een-broeder-het-zoeken-naar-verbinding" target="_blank">In memoriam op MO &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 14 februari 2023</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Dries Van Cauter</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Dries Van Cauter, onze oudste parochiaan en trouwe kerkganger, overleed op dinsdag 14 februari 2023. De begrafenis vond plaats in onze kerk op woensdag 22 februari om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden  2025/Overlijdensbericht_DriesVanCauter.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 1 januari 2023</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Johanna Smet</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Johanna Smet, mama van Rita Van Moorter en Jos Rolies, overleed op 1 januari 2023. De begrafenis vond plaats in de parochiekerk Sint-Martinus van Erpe op zaterdag 7 januari om 11.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Overlijden 2014 - 2023/Overlijden 2023/Overlijdensbericht_LucVankrunkelsven.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 23 oktober 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Frieda Raes</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Frieda Raes, heel lang lid van onze gemeenschap, overleed op zondag 23 oktober 2022. De begrafenis vond plaats in de parochiekerk Sint-Petrus en Paulus te Hansbeke op donderdag 3 november om 10.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 11 september 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Margriet Miserez</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Margriet Miserez overleed op zondag 11 september 2022. De begrafenis vond plaats in de Sint-Annakapel te Itterbeek op zaterdag 17 september om 10.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_MargrietMiserez.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 11 juli 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Dik Madder</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Dik Madder overleed op maandag 11 juli 2022. Jarenlang was hij werkzaam in de persdienst van de Kerk in Brussel en verzorgde de aalmoezeniersdienst van het Bracopsziekenhuis. De begrafenis vond plaats in de Finisterrae kerk op maandag 18 juli om 14 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_DikMadder.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; juli 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Zuster Rita Claus</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Zuster Rita Claus is overleden. De begrafenis vond plaats in de Finisterrae kerk op zaterdag 16 juli om 10.30 uur.</p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; juni 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Simonne Meert</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Simonne Meert, meer dan 90 jaar oud, overleed in juni 2022, rustig thuis omringd door haar kinderen. De uitvaart vond plaats op zaterdag 18 juni om 10 uur in Vlezenbeek.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_SimonneMeert.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 24 mei 2022</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Hans Fogli</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Hans Fogli overleed op dinsdag 24 mei 2022. De begrafenis vond plaats in onze Goede Bijstandkerk op donderdag 2 juni om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_HansFogli.pdf" target="_blank">Foto Hans Fogli &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 16 november 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Marie-Paule De Pauw</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Marie-Paule De Pauw, mama van Marc Cooremans en Sabine Maertens, oma van Tine en Wannes, overleed op dinsdag 16 november 2021. De begrafenis vond plaats in de Sint-Bartholomeus kerk te Geraardsbergen op zaterdag 20 november om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_MariePauleDePauw.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 15 oktober 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Maria-Stella Tuerlinckx</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Maria-Stella Tuerlinckx overleed op vrijdag 15 oktober 2021. De begrafenis vond plaats in onze Goede Bijstandkerk op donderdag 21 oktober om 12 uur.</p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 7 juli 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Edith Asselman</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Edith Asselman, mama van Sonja en Herwig, overleed op woensdag 7 juli 2021. Sterk geëngageerd in het Merchtemse verenigingsleven en de verbindende figuur van haar gezin.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_EdithAsselman.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 6 april 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Omer Mommaerts</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Omer Mommaerts, een groot man van hart en ziel en Cardijn-volgeling van het eerste uur, overleed op dinsdag 6 april 2021.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_OmerMommaerts.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 9 maart 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Helena Verlinden (zuster Marie-H&#233;l&#232;ne)</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Zuster Marie-Hélène Verlinden, lid van de gemeenschap Finis Terrae en rechterhand van zuster Leontine bij de oprichting van de palliatieve zorgen in Sint Jan Brussel, overleed op dinsdag 9 maart 2021.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_HelenaVerlinden.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 1 maart 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Anne Debusschere</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Anne Debusschere overleed op maandag 1 maart 2021, bijna 68 jaar oud, na een lange strijd. De begrafenis vond plaats op maandag 8 maart om 11 uur in de kerk van Goede Bijstand.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_AnneDebusschere.pdf" target="_blank">Bericht Johnny &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 10 februari 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Leen Dhaese</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Leen Dhaese overleed op woensdag 10 februari 2021.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_LeenDhaese.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 23 januari 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Walter Fabri</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Walter Fabri overleed op zaterdagavond 23 januari 2021, kort na zijn eenentachtigste verjaardag, in Gasthuisberg Leuven. Jarenlang een trouwe zanger in ons koortje en Jezuïet.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_WalterFabri.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 3 januari 2021</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Elza Van Mulders</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Elza Van Mulders, mama van Michel De Wolf en Milaine Verborgh, overleed op zondag 3 januari 2021 na een corona-uitbraak in wzc Warlandis in Jette.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_ElzaVanMulders.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 17 november 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Jean Vandenbrul</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Jean Vandenbrul, heel graag gezien in onze gemeenschap, overleed op dinsdag 17 november 2020.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_JeanVandenbrul.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 2 november 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Christiane Van Den Bossche</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Christiane Van Den Bossche, mama van Hilde De Geeter, overleed op maandag 2 november 2020.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_ChristianeVanDenBossche.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 23 oktober 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Marc Rosseel</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Marc Rosseel overleed op vrijdag 23 oktober 2020.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_MarcRosseel.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 2 mei 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Walter Ceuppens</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Walter Ceuppens, een grote vriend van de Goede Bijstand, overleed op zaterdag 2 mei 2020.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_CeuppensWalter.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 21 april 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Flor Cooremans</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Flor Cooremans overleed op dinsdag 21 april 2020. Een trouwe Bijstander die de kerk innig liefhad.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_FlorCooremans.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 15 april 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Albert Kestemont</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Albert Kestemont overleed op woensdag 15 april 2020 na een hospitalisatie en operatie. Hij kwam samen met Fernand en Pater Gerard naar de vieringen in de Goede Bijstand.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_AlbertKestemont.pdf" target="_blank">Bericht familie &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 13 april 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Marijke Jacobs</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Marijke Jacobs, dochter van Gusta en René, twee sterkhouders van de Goede Bijstand, overleed op maandag 13 april 2020. Ze kwam graag met haar man Guido naar de vieringen.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_MarijkeJacobs.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 3 april 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Willy Verbruggen</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Willy Verbruggen, broeder van de heilige Franciscus, overleed in de nacht van 3 april 2020 in het Sint-Jans ziekenhuis. Hij zou eind juni 80 worden. Een beperkte afscheidsviering vond plaats op 8 april om 11 uur in de Goede Bijstandskerk.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_WillyVerbruggen.pdf" target="_blank">Bericht Johnny &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 18 maart 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Peter Van Oost</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Peter Van Oost, broer van Katrien, overleed op woensdag 18 maart 2020, 52 jaar oud. Wegens corona vond de begrafenis in strikte intimiteit plaats.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_PeterVanOost.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 11 januari 2020</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Jacqueline Schepens</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Jacqueline Schepens overleed op zaterdag 11 januari 2020. De begrafenis vond plaats in de Goede Bijstand op vrijdag 17 januari om 12 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_JacquelineSchepens.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 20 oktober 2019</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Dora Dalle</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Dora Dalle overleed op zondag 20 oktober 2019. De begrafenis vond plaats in de Verrijzeniskerk te Sint-Jans-Molenbeek op zaterdag 26 oktober om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_DoraDalle.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 8 september 2017</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Lena Demeester</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Lena Demeester overleed op donderdag 8 september 2017 in de palliatieve eenheid van het UZ Leuven. Als lid van de gemeenschap verzorgde ze jarenlang wetenschappelijke en religieuze uitzendingen bij de VRT. De begrafenis vond plaats in onze kerk op zaterdag 16 september om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_LenaDemeester.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 13 augustus 2017</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Toke Craeghs</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Toke Craeghs, mama van Mathieu, overleed op zondag 13 augustus 2017 in het woonzorgcentrum &ldquo;De Maaspoorte&rdquo; in Maaseik. De begrafenis vond plaats in de Sint Catharinakerk te Maaseik op vrijdag 18 augustus om 10.30 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_TokeCraeghs.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 9 juli 2016</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Pierre-Alain Wiener</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Pierre-Alain Wiener, die jarenlang het orgel bespeelde in onze kerk, overleed op zondag 9 juli 2016. De begrafenis vond plaats in onze kerk op zaterdag 16 juli om 10 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_PierreAlainWiener.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 23 september 2014</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Christ'l Cuypers</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Christel werd dood aangetroffen op dinsdag 23 september 2014. De begrafenis vond plaats op maandag 6 oktober om 10.30 uur in de Bijstandskerk.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_Christel.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
-      <div class="news-item" style="cursor:default;">
-        <div class="tag">Overlijden &mdash; 25 september 2014</div>
-        <div class="ni-title" style="font-size:1.1rem;margin-bottom:0.4rem;">Jozef (Jef) Bick&#233;</div>
-        <p style="font-size:0.92rem;color:var(--muted);">Jozef (Jef) Bické overleed in de nacht van donderdag 25 september 2014 in zijn slaap in het rusthuis te Meerbeke. De begrafenis vond plaats in onze Bijstandskerk op woensdag om 11 uur.</p>
-        <p style="font-size:0.87rem;"><a href="Documenten/Overlijdensbericht_JozefBicke.pdf" target="_blank">Rouwbrief &#8594;</a></p>
-      </div>
-
+      ${OVERLIJDENS.map(o => overlijdenItem(o.datum, o.naam, o.tekst, o.links)).join('')}
     </section>` },
 
   contact: { title:'Contact', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> Contact</div>
+      ${breadcrumb(['Home','home'], 'Contact')}
       <h2>Contact</h2>
       <h3>Secretariaat</h3><p>Bijstandsstraat 5, 1000 Brussel</p>
       <h3>Pastoor</h3><p><strong>Johnny De Mot</strong><br><a href="mailto:johnny.demot@viaporta.be">johnny.demot@viaporta.be</a></p>
@@ -1349,7 +1341,7 @@ const pages = {
 
   homilie: { title:'Homilie — Kerstmis 2025', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('vieringen')">Vieringen</a> <span>&#8250;</span> Homilies</div>
+      ${breadcrumb(['Home','home'], ['Vieringen','vieringen'], 'Homilies')}
       <h2>Kerstmis: moet ik zwijgen?</h2>
       <p><em>Kerstmis, 25 december 2025 &mdash; Pastoor Johnny De Mot</em></p>
       <div class="homilie">
@@ -1362,7 +1354,7 @@ const pages = {
 
   bezinning: { title:'Koud Gepakt, Warm Gedragen', content:() => `
     <section>
-      <div class="breadcrumb"><a onclick="navigate('home')">Home</a> <span>&#8250;</span> <a onclick="navigate('vieringen')">Vieringen</a> <span>&#8250;</span> Bezinningsteksten</div>
+      ${breadcrumb(['Home','home'], ['Vieringen','vieringen'], 'Bezinningsteksten')}
       <h2>Koud Gepakt, Warm Gedragen</h2>
       <p><em>Bezinningstekst &mdash; 21 september 2025</em></p>
       <div class="homilie">
@@ -1379,9 +1371,8 @@ const pages = {
 function navigate(pageKey) {
   const page = pages[pageKey];
   if (!page) return;
-  const content = typeof page.content === 'function' ? page.content() : page.content;
-  document.getElementById('main-content').innerHTML = content;
-  document.getElementById('sidebar').innerHTML = getSidebar();
+  document.getElementById('main-content').innerHTML = typeof page.content === 'function' ? page.content() : page.content;
+  document.getElementById('sidebar').innerHTML = SIDEBAR_HTML;
   document.title = page.title + ' \u2014 Onze-Lieve-Vrouw van Goede Bijstand';
   document.querySelectorAll('nav a').forEach(a => a.classList.toggle('active', a.dataset.page === pageKey));
   window.scrollTo({ top: 0, behavior: 'smooth' });
